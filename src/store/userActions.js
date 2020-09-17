@@ -49,7 +49,7 @@ export const autoLogin = () => {
     return function (dispatch) {
         fetch('http://localhost:3000/autologin',{
             headers:{
-                'Auhorization': `Bearer ${localStorage.token}`,
+                'Authorization': `Bearer ${localStorage.token}`,
                 'Content-Type': 'application/json'
             }
         })
@@ -57,6 +57,7 @@ export const autoLogin = () => {
         .then(data => {
             if (data.user){
                 dispatch(clearForm())
+                console.log(data)
             }else{
                 console.log(data.error)
             }
