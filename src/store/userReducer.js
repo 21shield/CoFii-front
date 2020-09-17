@@ -1,3 +1,4 @@
+import Login from "../containers/Login";
 
 const defaultState = {
     currentUser: null,
@@ -42,6 +43,11 @@ const reducer = (state = defaultState, action ) => {
                         password: "",
                         password_confirmation: ''
                     } 
+                }
+            case 'LOGIN':
+                return{
+                    ...state,
+                    currentUser: action.payload
                 }
         default:
             return state

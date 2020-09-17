@@ -13,10 +13,8 @@ import store from './index'
         .then(r  => r.json())
         .then(data => {
             if (data.user){
-                const action = {
-                    type: 'CLEAR_FORM'
-                }
-                dispatch(action)
+                dispatch(handleUser(data))
+                dispatch(clearForm())
             }else{
                 console.log(data.error)
             }
@@ -35,17 +33,15 @@ export const loginUser = () => {
             body: JSON.stringify(store.getState().user.form)
         })
         .then(r  => r.json())
-        // .then(data => {
-        //     console.log(data)
-        //     if (data){
-        //         const action = {
-        //             type: 'CLEAR_FORM'
-        //         }
-        //         dispatch(action)
-        //     }else{
-        //         console.log('ERROR')
-        //     }
-        // })
+        .then(data => {
+            console.log(data)
+            if (data.user){
+                dispatch(handleUser(data))
+                dispatch(clearForm())
+            }else{
+                console.log(data.error.full_messages)
+            }
+        })
     }
 }
 
@@ -60,10 +56,7 @@ export const autoLogin = () => {
         .then(r  => r.json())
         .then(data => {
             if (data.user){
-                const action = {
-                    type: 'CLEAR_FORM'
-                }
-                dispatch(action)
+                dispatch(clearForm())
             }else{
                 console.log(data.error)
             }
@@ -81,3 +74,23 @@ export const logout  = () => {
         dispatch(action)
     }
 }
+
+
+// helpers should only return actions
+
+const handleUser = (data) => {
+    localStorage.token = data.token
+    const action = {
+        type: 'LOGIN',
+        payload: data.user
+    }
+    return action
+}
+
+const clearForm = () => {            
+    const action = {
+        type: 'CLEAR_FORM'
+    }   
+    return action          
+}
+
