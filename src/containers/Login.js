@@ -1,11 +1,12 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { loginUser } from '../store/userActions'
 
 export default function Login(props) {
 
     const dispatch = useDispatch()
 
-    const {username, password} = useSelector(state => state.user)
+    const {username, password} = useSelector(state => state.user.form)
 
     const handleChange = (e) => {
         const action = {
@@ -14,11 +15,16 @@ export default function Login(props) {
         }
         dispatch(action)
     }
+
+    const handleSubmit = (e) => {
+        e.preventDefault()
+        dispatch(loginUser())
+    }
     
 
     return(
         <div className ="login">
-            <form className="login-form">
+            <form className="login-form" onSubmit={handleSubmit}>
                 <label>
                     <input 
                     type="text"
@@ -40,7 +46,7 @@ export default function Login(props) {
                     />
                 </label>
                
-                <button type="submit"> Login </button>
+                <button type="submit" > Login </button>
             
             </form>
         </div>

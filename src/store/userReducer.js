@@ -1,10 +1,12 @@
 
 const defaultState = {
     currentUser: null,
-    username: "",
-    email:"",
-    password: "",
-    password_confirmation: ''
+    form: {
+        username: "",
+        email:"",
+        password: "",
+        password_confirmation: ""
+    }
     // position:[long,lat]
 };
 
@@ -14,16 +16,33 @@ const reducer = (state = defaultState, action ) => {
         case "SET_FORM":
             return {
                 ...state,
-                ...action.payload
+                form:{
+                    ...state.form,
+                    ...action.payload
+                }
+               
             }
         case "CLEAR_FORM":
             return{
                 ...state,
-                username: "",
-                email:"",
-                password: "",
-                password_confirmation: ''
+                form:{
+                    username: "",
+                    email:"",
+                    password: "",
+                    password_confirmation: ''
+                } 
             }
+            case "LOGOUT":
+                return{
+                    ...state,
+                    currentUser: null,
+                    form:{
+                        username: "",
+                        email:"",
+                        password: "",
+                        password_confirmation: ''
+                    } 
+                }
         default:
             return state
     }
