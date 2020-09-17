@@ -1,24 +1,63 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { useSelector, useDispatch} from 'react-redux'
+
 
 export default function SignUp(props) {
+    
+    const dispatch = useDispatch()
 
+    const {username, email, password, password_confirmation} = useSelector(state => state.user)
+
+    const handleChange = (e) => {
+        const action = {
+            type: "SET_FORM",
+            payload: {[e.target.name]: e.target.value}
+        }
+        dispatch(action)
+    }
+    
     return(
         <div className="signup">
             <form className="SignU-form">
-                <label for="username">
-                    <input type="text" placeholder="username" />
+                <label htmlFor="username">
+                    <input type="text" 
+                    name="username"
+                    placeholder="Username"
+                    value={username} 
+                    onChange={handleChange}
+                    />
 
                 </label>
-                <label for="email">
-                    <input type="email" placeholder="email"/>
+
+                <label htmlFor="email">
+
+                    <input 
+                    type="email" 
+                    name="email" 
+                    onChange={handleChange} 
+                    placeholder="Email" 
+                    value={email} 
+                    />
+
                 </label>
 
-                <label for="password">
-                    <input type="password" placeholder="password" />
+                <label htmlFor="password">
+                    <input 
+                    type="password" 
+                    name="password" 
+                    placeholder="Password" 
+                    value={password} 
+                    onChange={handleChange}
+                    />
                 </label>
 
-                <label for="password_confirmation">
-                    <input type="password_confirmation" placeholder="password_confirmation"/>
+                <label htmlFor="password_confirmation">
+                    <input 
+                    type="password" 
+                    name="password_confirmation" placeholder="Password Confirmation"
+                    value={password_confirmation} 
+                    onChange={handleChange}
+                    />
                 </label>
                
                 <button type="submit"> SignUp </button>
