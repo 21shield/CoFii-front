@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import '../styles/shopPanel.css'
 import CoffeeShopCard from '../components/coffeeShopCard'
-import ReactMapGl from 'react-map-gl';
+import ReactMapboxGl, {Layer, Feature} from 'react-mapbox-gl';
 
 
 
