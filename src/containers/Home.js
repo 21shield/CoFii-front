@@ -23,6 +23,11 @@ export default function Home () {
         )
     }, []);
 
+    useEffect(() => {
+        // launch search for current coordinates
+    }
+    )
+
     const state = useSelector(state => state)
     return(
         <div className ="homePage">

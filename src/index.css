@@ -1,24 +1,5 @@
 
 
-/* .nav-bar .img-Icon{
-  /* opacity: 50%; */
-  /* width: 30px;
-  float: left;
-  height: 30px;
-  border-radius: 100px;
-  margin-bottom: 10px;
-  margin-top: 10px;
-  border: solid 1px ivory;
-} */
-
-/* .profile-info{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 2em;
-} */ 
-
 .csCard {
   border: solid 2px cyan;
   flex-direction: column;
