@@ -1,12 +1,13 @@
 import React from 'react';
 import { useSelector, useDispatch} from 'react-redux'
+import { useHistory } from 'react-router-dom';
 import { signUpUser } from '../store/userActions'
 
 
 export default function SignUp(props) {
     
     const dispatch = useDispatch()
-
+    const history = useHistory()
     const {username, email, password, password_confirmation} = useSelector(state => state.user.form)
 
     const handleChange = (e) => {
@@ -20,7 +21,7 @@ export default function SignUp(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
        dispatch(signUpUser())
-        
+       history.push("/home")
     }
     
     return(

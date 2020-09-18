@@ -1,35 +1,46 @@
-import React, { useEffect }from 'react';
+import React, { useEffect } from 'react';
 import Login from  './containers/Login'
 import SignUp from './containers/SignUp'
-import NavBar from './containers/NavBar'
-import { useDispatch } from 'react-redux'
-import { autoLogin} from './store/userActions'
+import Home from './containers/Home'
+import Profile from './containers/Profile'
+import { useSelector, useDispatch } from 'react-redux'
+import { autoLogin, signUpUser} from './store/userActions'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
 
 import './App.css';
 
 function App() {
-const dispatch = useDispatch()
-  useEffect(() => {
-    if(localStorage.token){
-      dispatch(autoLogin())
-    }
-  },[])
+  const user = useSelector((state) => state.user.currentUser)
+  
+  console.log("this line 13", user)
+  const dispatch = useDispatch()
+    useEffect(() => {
+      if(localStorage.token){
+        dispatch(autoLogin())
+      }
+    },[])
 
   return (
     <Router>
 
-      <NavBar/>
-      
       <Switch>
-        <Route exact path="/login">
-          <Login/>
-        </Route>
-        
+
         <Route exact path="/signup">
           <SignUp/>
         </Route>
-       
+
+        {/* <Route exact path={`/${user.username}`}>
+          <Profile/>
+        </Route> */}
+
+        <Route exact path="/login">
+            {!!user ? <Redirect to='/'/> :  <Login/> }
+        </Route>
+
+        <Route exact path='/'>
+          {!!user ?  <Home/> : <Redirect to="/login"/>}
+        </Route>
+
       </Switch>
     </Router>
       

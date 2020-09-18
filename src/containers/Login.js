@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link, Redirect } from 'react-router-dom';
 import { loginUser } from '../store/userActions'
 
 export default function Login(props) {
@@ -7,6 +8,7 @@ export default function Login(props) {
     const dispatch = useDispatch()
 
     const {username, password} = useSelector(state => state.user.form)
+    const user = useSelector(state => state.user.currentUser)
 
     const handleChange = (e) => {
         const action = {
@@ -20,7 +22,6 @@ export default function Login(props) {
         e.preventDefault()
         dispatch(loginUser())
     }
-    
 
     return(
         <div className ="login">
@@ -49,6 +50,14 @@ export default function Login(props) {
                 <button type="submit" > Login </button>
             
             </form>
+            <div>
+                Dont have an account?
+                <Link to="/signup">
+                    <button> Sign Up </button>
+                </Link>
+            </div>
+       
+            
         </div>
     )
 }

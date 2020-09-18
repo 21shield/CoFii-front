@@ -1,4 +1,4 @@
-import Login from "../containers/Login";
+
 
 const defaultState = {
     currentUser: null,
@@ -8,7 +8,7 @@ const defaultState = {
         password: "",
         password_confirmation: ""
     }
-    // position:[long,lat]
+   
 };
 
 

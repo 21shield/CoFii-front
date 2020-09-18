@@ -1,0 +1,26 @@
+.navbar{
+  border: solid 2px coral;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+
+.imgicon{
+    /* opacity: 50%; */
+    width: 100px;
+    float: right;
+    height: 100px;
+    border-radius: 100px;
+    /* margin-bottom: 10px; */
+  
+    border: solid 1px rgb(179, 59, 43);
+  }
+
+  .profileinfo{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    /* float: right; */
+   
+  }

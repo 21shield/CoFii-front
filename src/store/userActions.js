@@ -56,8 +56,8 @@ export const autoLogin = () => {
         .then(r  => r.json())
         .then(data => {
             if (data.user){
+                dispatch({type:'LOGIN', payload:data.user})
                 dispatch(clearForm())
-                console.log(data)
             }else{
                 console.log(data.error)
             }
