@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+// import { useSelector, useDispatch } from 'react-redux';
 import '../styles/shopPanel.css'
 import CoffeeShopCard from '../components/coffeeShopCard'
-import ReactMapboxGl, {Layer, Feature} from 'react-mapbox-gl';
+import Map from '../components/Map'
 
-console.log("checking the key", process.env)
 
 export default function CoffeeShops() {
 
@@ -12,6 +11,7 @@ export default function CoffeeShops() {
         <div className="shopPanel">
             SHOP PANNEL
             <CoffeeShopCard/>
+            <Map/>
         </div>
     )
 }
