@@ -9,6 +9,8 @@ import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom
 
 import './App.css';
 
+console.log("checking the key", process.env.REACT_APP_MAPBOX_API_KEY)
+
 function App() {
   const user = useSelector((state) => state.user.currentUser)
   

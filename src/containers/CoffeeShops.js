@@ -4,7 +4,7 @@ import '../styles/shopPanel.css'
 import CoffeeShopCard from '../components/coffeeShopCard'
 import ReactMapboxGl, {Layer, Feature} from 'react-mapbox-gl';
 
-
+console.log("checking the key", process.env)
 
 export default function CoffeeShops() {
 
