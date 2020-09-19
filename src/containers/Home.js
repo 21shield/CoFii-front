@@ -14,6 +14,7 @@ export default function Home () {
             (pos) => {
                 const {latitude,
                     longitude} = pos.coords
+                    console.log("from 17 home",latitude)
                   dispatch(updateLocation([latitude,longitude])) 
             },
             (err) => {
@@ -21,12 +22,12 @@ export default function Home () {
             }
             
         )
-    }, []);
+    },[dispatch]);
 
-    useEffect(() => {
-        // launch search for current coordinates
-    }
-    )
+    // useEffect(() => {
+    //     // launch search for current coordinates
+    // }
+    // )
 
     const state = useSelector(state => state)
     return(

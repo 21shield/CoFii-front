@@ -1,7 +1,10 @@
 
 const defaultState = {
-    userLocation: []
-
+    latitude: 0,
+    longitude: 0,
+    height: '50vh',
+    width: '50vw',
+    zoom: 13
 }
 
 const reducer = (state = defaultState, action) => {
@@ -9,7 +12,8 @@ const reducer = (state = defaultState, action) => {
         case "SET_LOCATION":
             return{
                 ...state,
-                userLocation: action.payload
+                latitude: action.payload[0],
+                longitude: action.payload[1]
             }
     
         default:

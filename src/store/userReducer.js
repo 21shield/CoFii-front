@@ -2,6 +2,7 @@
 
 const defaultState = {
     currentUser: null,
+    userLocation:[40.6476452, -74.0144534],
     form: {
         username: "",
         email:"",

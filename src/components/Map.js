@@ -1,30 +1,34 @@
 import React, { useEffect, useState } from 'react';
-import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
-
-// const ReactMapboxGl = require('react-mapbox-gl');
-// const Layer = ReactMapboxGl.Layer;
-// const Feature = ReactMapboxGl.Feature;
-// const Map = ReactMapboxGl({
-//     accessToken: "sk.eyJ1IjoibmV0YWx5ZGV2IiwiYSI6ImNrZjd3MDZwMzAwY2oydW1oOWd2Z3RpbjQifQ.A9rfJanNN6z1TX0neHz5Eg"
-//   });
+import ReactMapGl, { Marker } from 'react-map-gl';
+import { useSelector, useDispatch } from 'react-redux'
+import { updateLocation } from '../store/locationActions'
 
 export default function Map() {
-  const [viewport, setViewport] = useState({
-      latitude: 40.60503380000001,
-      longitude: -73.9712603,
-      height: '100vh',
-      width: '100vw'
-  },[])
+  const dispatch = useDispatch()
+  const location = useSelector((state) => state.location) 
+  const user = useSelector((state) => state.user)
+    console.log("this is frmo maps",user)
     return(
         <div>
-        <ReactMapboxGl
-        style="mapbox://styles/mapbox/streets-v9"
+        <ReactMapGl
+        {...location}
+        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapStyle="mapbox://styles/netalydev/ckf7ue7hc0uht19o88kcesw4x"
+        onViewportChange={(data) => 
+          dispatch(updateLocation([data.latitude, data.longitude]))
+        }
         >
-        {/* <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}> */}
-          {/* <Feature coordinates={[40.60503380000001, -73.9712603]} /> */}
+            <Marker 
+            className="userLocation"
+            latitude={user.userLocation[0]}
+            longitude={user.userLocation[1]}
+            >
+                <div><i className="fas fa-map-pin"></i></div>
+            </Marker>
+      
+       
           
-        {/* </Layer> */}
-        </ReactMapboxGl>
+        </ReactMapGl> 
       </div>
     )
 }
