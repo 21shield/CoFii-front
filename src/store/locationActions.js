@@ -1,4 +1,4 @@
-import store from './index'
+// import store from './index'
 
 export const updateLocation = (cords) => {
     const action = {

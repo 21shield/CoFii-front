@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import NavBar from './NavBar'
 import CoffeeShops from './CoffeeShops'
-import { updateLocation } from '../store/locationActions'
+import { userLocation } from '../store/userActions'
+import { getCoffeeShops } from '../api/index'
+import { updateLocation  } from '../store/locationActions'
 import '../styles/homePage.css'
 
 export default function Home () {
@@ -14,8 +16,9 @@ export default function Home () {
             (pos) => {
                 const {latitude,
                     longitude} = pos.coords
-                    console.log("from 17 home",latitude)
-                  dispatch(updateLocation([latitude,longitude])) 
+                    console.log("this has to be set for the user", pos.coords)
+                  dispatch(userLocation([latitude,longitude])) 
+                  dispatch(updateLocation([latitude,longitude]))
             },
             (err) => {
                 console.log(err)
@@ -24,12 +27,22 @@ export default function Home () {
         )
     },[dispatch]);
 
-    // useEffect(() => {
-    //     // launch search for current coordinates
-    // }
-    // )
+    useEffect(() => {
+        // launch search for current coordinates
+
+        getCoffeeShops(state.user.userLocation)
+        .then((data) => {
+            console.log(data)
+        })
+    },
+    [])
 
     const state = useSelector(state => state)
+    console.log("get user location from this", state)
+
+
+
+
     return(
         <div className ="homePage">
             <NavBar/>

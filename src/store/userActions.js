@@ -34,12 +34,11 @@ export const loginUser = () => {
         })
         .then(r  => r.json())
         .then(data => {
-            console.log(data)
             if (data.user){
                 dispatch(handleUser(data))
                 dispatch(clearForm())
             }else{
-                console.log(data.error.full_messages)
+                console.log(data.message)
             }
         })
     }
@@ -78,6 +77,15 @@ export const logout  = () => {
 
 
 // helpers should only return actions
+
+export const userLocation = (cords) => {
+    console.log("from userActions", cords)
+    const action = {
+        type:"SET_USER_LOCATION",
+        payload: cords
+    }
+    return action
+}
 
 const handleUser = (data) => {
     localStorage.token = data.token

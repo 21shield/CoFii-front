@@ -45,11 +45,19 @@ const reducer = (state = defaultState, action ) => {
                         password_confirmation: ''
                     } 
                 }
+                
             case 'LOGIN':
                 return{
                     ...state,
                     currentUser: action.payload
                 }
+
+            case 'SET_USER_LOCATION':
+                return {
+                    ...state,
+                    userLocation: action.payload
+                }
+
         default:
             return state
     }

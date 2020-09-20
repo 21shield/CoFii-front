@@ -1,4 +1,11 @@
+/* @import url('https://fonts.googleapis.com/css?family=Lato|Lora'); */
 
+
+*{
+  /* font-family: 'Roboto Slab', serif; */
+  font-family: 'Varela Round', sans-serif;
+  /* font-family: 'Lato', serif; */
+}
 
 .csCard {
   border: solid 2px cyan;
