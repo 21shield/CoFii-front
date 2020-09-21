@@ -6,6 +6,7 @@ import { userLocation } from '../store/userActions'
 import { getCoffeeShops } from '../api/index'
 import { updateLocation  } from '../store/locationActions'
 import '../styles/homePage.css'
+import {saveShops} from '../store/shopActions'
 
 export default function Home () {
 
@@ -32,7 +33,7 @@ export default function Home () {
 
         getCoffeeShops(state.user.userLocation)
         .then((data) => {
-            console.log(data)
+            dispatch(saveShops(data))
         })
     },
     [])

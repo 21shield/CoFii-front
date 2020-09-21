@@ -10,6 +10,12 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 faveShops: action.payload
             }
+            
+        case "SET_NEARBY_SHOPS":
+            return {
+                ...state,
+                shops: action.payload
+            }
     
         default:
             return state
