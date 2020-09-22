@@ -1,6 +1,6 @@
 .navbar{
   overflow: hidden;
-  background-color:rgb(250, 221, 211);
+  background-color:#FFFCF0;
   display: flex;
   justify-content: space-between;
   position: relative;
@@ -24,7 +24,7 @@
     border-radius: 100px;
     /* margin-bottom: 10px; */
   
-    border: solid 1px rgb(179, 59, 43);
+    border: solid 1px #213120;
   }
 
   .profileinfo{

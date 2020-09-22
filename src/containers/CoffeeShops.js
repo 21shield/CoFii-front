@@ -7,7 +7,7 @@ import Map from '../components/Map'
 export default function CoffeeShops() {
     // this is an array to play with
     const coffeeShops = useSelector(state => state.shops.shops)
-    
+  
     let renderShops = () => {
        return coffeeShops.map((shop) => <CoffeeShopCard key={shop.external_id} shop={shop}/>)    
     }
@@ -15,7 +15,10 @@ export default function CoffeeShops() {
     return(
         <div className="shopPanel">
             SHOP PANNEL
-            {renderShops()}
+            <div className="shops">
+             {renderShops()}
+            </div>
+            
             <Map/>
         </div>
     )

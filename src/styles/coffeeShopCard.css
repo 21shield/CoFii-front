@@ -1,5 +1,6 @@
+
 .csCard {
-    border: solid 2px cyan;
+    border: solid 2px rgba(115, 107, 85, 0.5);
     /* flex-direction: column; */
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     flex-direction: column;
@@ -12,6 +13,11 @@
     margin-bottom: 2em; 
   }
 
+  .cardHeader{
+    flex-wrap: nowrap;
+    flex-direction: column;
+  }
+  
   .cImg {
     width: 100%;
     height: 50%;
@@ -19,21 +25,29 @@
       
   }
   .csCard img:hover {
-    filter: grayscale(100%);  
+    filter: grayscale(100%); 
+    flex-direction: row; 
   }
 
   .infoBar {
-    border: solid 2px rosybrown;
-    flex-direction: row;
+    /* border: solid 2px rosybrown; */
+    /* float: right; */
     flex-wrap: nowrap;
-    margin: 0;
+    flex-direction: row;
+    justify-content: space-between;
+    /* margin: 0; */
   }
-  .csMediaBar{
-    border: solid 2px rgb(23, 64, 201);
+
+  .mediaBar{
+    border: solid 2px rgb(4, 91, 12);
   }
 
 
   .csComments{
     border: solid 2px green;
-    padding:2px 16px;
+    /* padding:2px 16px; */
+  }
+
+  .comment {
+    flex-wrap: wrap;
   }

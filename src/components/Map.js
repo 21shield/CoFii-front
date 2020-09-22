@@ -3,7 +3,7 @@ import ReactMapGl, { Marker } from 'react-map-gl';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateLocation  } from '../store/locationActions'
 import { userLocation } from '../store/userActions'
-
+import '../styles/shopPanel.css'
 export default function Map() {
   const dispatch = useDispatch()
   const location = useSelector((state) => state.location) 
@@ -11,7 +11,7 @@ export default function Map() {
 
   
     return(
-        <div>
+        <div className= "map">
         <ReactMapGl
         {...location}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}

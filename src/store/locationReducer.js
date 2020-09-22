@@ -2,8 +2,8 @@
 const defaultState = {
     latitude: 40.6476452,
     longitude: -74.0144534,
-    height: '50vh',
-    width: '50vw',
+    height: '70vh',
+    width: '40vw',
     zoom: 12
 }
 

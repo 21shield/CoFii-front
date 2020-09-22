@@ -1,14 +1,22 @@
-import React from 'react';
-
+import React, {useState}  from 'react';
+import '../styles/coffeeShopCard.css'
 export default function CsMediaBar(props) {
     // console.log("from mediaBar", props)
     // this needs on click events
+
+    const [click, setClick] = useState(false)
+
+    let comment = props.comment
+
+    const handleClick = (e) => {
+        setClick(!click)
+        
+    }
     return(
         <div className="mediaBar">
-            <button>
-                <i className="fas fa-heart"></i>
-
-                <i className="far fa-heart"></i>
+            <button onClick={handleClick}>
+                { click ? <i className="fas fa-heart"></i> :
+                <i className="far fa-heart"></i> }
             </button>
 
             <button>

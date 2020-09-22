@@ -8,24 +8,38 @@ import CommentListing from './CommentListing'
 export default function CoffeeShopCard(props) {
 
     const {name, image_url, location, rating} = props.shop
-
+    
     return(
         <div className="csCard">
             <div className="cardHeader">
-               <h2>{name}</h2>
+               <div><h3>{name}</h3></div>
+                <div className="infoBar">
+              
+                    <div>
+                    <span><i className="far fa-compass"></i></span>
+                        <small>
+                        
+                            {/* <p> */}
+                            {location}
+                            {/* </p> */}
+                        </small>
+                    </div>
+
+                   <div>
+                        {/* <span>  */}
+                        <small>
+                        rating: {rating}
+                        </small>  
+                    {/* </span> */}
+                   </div>
+                  
+                    
+                </div>
             </div>
-          
+            <hr/>
+            
             <img className="cImg" src={image_url} alt={name} />
-           
-            <div className="infoBar">
-                <span>
-                <i className="far fa-compass"></i>{location}, 
-                </span>
-                <span> 
-                    rating: {rating}
-                </span>
-                   
-            </div>
+          
             
             <CsMediaBar shop={props.shop}/>
 
