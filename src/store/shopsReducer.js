@@ -1,6 +1,7 @@
 const defaultState = {
     shops: [],
-    faveShops:[]
+    faveShops:[],
+    
 }
 
 const reducer = (state = defaultState, action) => {
@@ -16,7 +17,6 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 shops: action.payload
             }
-    
         default:
             return state
     }

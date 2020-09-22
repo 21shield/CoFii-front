@@ -1,7 +1,6 @@
 .shopPanel{
     border: solid 2px cornflowerblue;
     float: left;
-    margin-right: 28px;
-   
+    /* margin-right: 28px; */
     width: 95%;
 }

@@ -25,6 +25,7 @@ export default function Login(props) {
 
     return(
         <div className ="login">
+            <img src="https://i.pinimg.com/originals/19/c6/87/19c68725379ef141e12706259870063e.gif" alt="coffee" />
             <form className="login-form" onSubmit={handleSubmit}>
                 <label>
                     <input 

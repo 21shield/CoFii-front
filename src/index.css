@@ -7,15 +7,7 @@
   /* font-family: 'Lato', serif; */
 }
 
-.csCard {
-  border: solid 2px cyan;
-  flex-direction: column;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.5);
-  flex-direction: column;
-  min-height: 100%;
-  width: 60%;
-  -webkit-box-orient: vertical;
-}
+
 
 /* .userLocation{
   background-size: cover;

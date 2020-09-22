@@ -11,6 +11,8 @@ import {saveShops} from '../store/shopActions'
 export default function Home () {
 
     const dispatch = useDispatch()
+    const state = useSelector(state => state)
+    const location = useSelector(state => state.user.userLocation)
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -23,26 +25,21 @@ export default function Home () {
             },
             (err) => {
                 console.log(err)
-            }
-            
+            } 
         )
-    },[dispatch]);
+    },[dispatch]); 
 
     useEffect(() => {
         // launch search for current coordinates
-
-        getCoffeeShops(state.user.userLocation)
+        let location = state.user.userLocation
+        getCoffeeShops(location)
         .then((data) => {
             dispatch(saveShops(data))
         })
     },
-    [])
+    [location])
 
-    const state = useSelector(state => state)
-    console.log("get user location from this", state)
-
-
-
+     
 
     return(
         <div className ="homePage">

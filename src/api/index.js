@@ -15,3 +15,17 @@ export const getCoffeeShops = (coords) => {
     })
       .then(r => r.json())
   }
+
+
+  export const createComment = (input) => {
+    return fetch(`http://localhost:3000/comments`,{
+        method:"POST",
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+          },
+        body: JSON.stringify(input),
+    })
+      .then(r => r.json())
+  }
+  

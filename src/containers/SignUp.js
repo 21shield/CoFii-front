@@ -21,7 +21,7 @@ export default function SignUp(props) {
     const handleSubmit = (e) => {
         e.preventDefault()
        dispatch(signUpUser())
-       history.push("/home")
+       history.push("/")
     }
     
     return(

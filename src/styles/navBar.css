@@ -1,11 +1,19 @@
 .navbar{
-  border: solid 2px coral;
+  overflow: hidden;
+  background-color:rgb(250, 221, 211);
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
   position: relative;
-  flex-wrap: wrap;
+  padding: 2rem;
+  position: fixed;
+  top: 0;
+  width: 96%;
+  height: 3rem;
+
 }
+
+
+
 
 
 .imgicon{
