@@ -3,20 +3,22 @@
     /* float: left; */
     /* margin-right: 28px; */
     width: 95%;
-    /* display: flex; */
-    flex-direction: row-reverse;
+    display: flex;
+    flex-direction: column;
     margin-top:100px;
     display: flex;
     /* flex-wrap: wrap; */
-    /* justify-content: space-between; */
+    justify-content: space-between;
+    padding: 1em;
     /* height: 3000px; Used to enable scrolling */
-    background: linear-gradient(55deg, #e4e1d2 0%,  #e6eccb 34%,#f0f0db 51%,#f8f8f5 85%);
+    /* background: linear-gradient(55deg, #e4e1d2 0%,  #e6eccb 34%,#f0f0db 51%,#f8f8f5 85%); */
 }
 
 .map {
     position: relative;
     position: fixed;
-    /* left: 80px; */
+    float: right;
+    left: 50rem;
     /* top: -150rem; */
 }
 

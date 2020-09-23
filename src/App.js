@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import Login from  './containers/Login'
 import SignUp from './containers/SignUp'
 import Home from './containers/Home'
-// import Profile from './containers/Profile'
+import Profile from './containers/Profile'
 import { useSelector, useDispatch } from 'react-redux'
 import { autoLogin} from './store/userActions'
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
@@ -29,9 +29,9 @@ function App() {
           <SignUp/>
         </Route>
 
-        {/* <Route exact path={`/${user.username}`}>
+       {user ? <Route exact path={`/${user.username}`}>
           <Profile/>
-        </Route> */}
+        </Route> : null}
 
         <Route exact path="/login">
             {!!user ? <Redirect to='/'/> :  <Login/> }

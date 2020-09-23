@@ -1,15 +1,19 @@
 .navbar{
-  overflow: hidden;
-  background-color:#FFFCF0;
+  /* overflow: hidden; */
+  background-color:#ffffff;
   display: flex;
   justify-content: space-between;
-  position: relative;
+  /* position: relative; */
   padding: 2rem;
   position: fixed;
   top: 0;
-  width: 96%;
-  height: 3rem;
-
+  width: 100%;
+  height: 1rem;
+  align-content: center;
+  border-bottom: solid 1px rgb(247, 223, 128);
+  transition: top 0.3s;
+  position: fixed;
+  color: rgb(216, 194, 68);
 }
 
 
@@ -17,10 +21,12 @@
 
 
 .imgicon{
-    /* opacity: 50%; */
-    width: 100px;
-    float: right;
-    height: 100px;
+
+    margin: 0%;
+    padding: 0;
+    width: 70px;
+    /* float: right; */
+    height: 70px;
     border-radius: 100px;
     /* margin-bottom: 10px; */
   
@@ -30,7 +36,9 @@
   .profileinfo{
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-around;
+    padding-right: 6rem;
+    margin-left: 3rem;
     /* float: right; */
    
   }

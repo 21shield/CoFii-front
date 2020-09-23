@@ -15,7 +15,7 @@ export default function NavBar(params) {
     
     return(
         <div className="navbar">  
-                <h1> Co - Fi </h1> 
+                <h1> Co Fi </h1> 
            <form>
                <input 
                type="search" 
@@ -24,12 +24,19 @@ export default function NavBar(params) {
                />
            </form>
            <div className="profileinfo">
-                <NavLink to="/" onClick={handleClick}>
+               <div>
+               <NavLink to="/" onClick={handleClick}>
                     logOut
                 </NavLink>  
+               </div>
+               
+                <div>
                 <Link to={`/${user.username}`} >
                     <img className="imgicon" src={user.avatar} alt="user icon" />
                 </Link>
+                </div>
+                
+                
                
         
            </div>

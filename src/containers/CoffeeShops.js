@@ -15,9 +15,9 @@ export default function CoffeeShops() {
     return(
         <div className="shopPanel">
             SHOP PANNEL
-            <div className="shops">
+            {/* <div className="shops"> */}
              {renderShops()}
-            </div>
+            {/* </div> */}
             
             <Map/>
         </div>

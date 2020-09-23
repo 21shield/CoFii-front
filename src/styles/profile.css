@@ -1,0 +1,23 @@
+.userProfile{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+
+.userIcon img{
+    display: flex;
+    flex-direction: row;
+    height: 15em;
+    width: 15em;
+    border-radius: 50%;
+}
+
+.userInfo{
+    display: flex;
+    flex-direction: row;
+    float: right;
+    border: solid 2px cornflowerblue;
+    background-color: cornsilk;
+    border-bottom: solid 1px rgb(101, 85, 20);
+}
