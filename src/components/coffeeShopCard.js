@@ -1,36 +1,32 @@
-import React,{useState}from 'react';
+import React from 'react';
 // import { useSelector} from 'react-redux';
 import '../styles/coffeeShopCard.css'
 import CsMediaBar from './csMediaBar'
 import NewComment from './NewComment'
 import CommentListing from './CommentListing'
+import FavButton from './FavButton'
 
 export default function CoffeeShopCard(props) {
 
     const {name, image_url, location, rating} = props.shop
-    
+
     return(
         <div className="csCard">
             <div className="cardHeader">
+                <FavButton shopId={props.shop.external_id}/>
                <div><h3>{name}</h3></div>
                 <div className="infoBar">
-              
                     <div>
                     <span><i className="far fa-compass"></i></span>
                         <small>
-                        
-                            {/* <p> */}
                             {location}
-                            {/* </p> */}
                         </small>
                     </div>
 
-                   <div>
-                        {/* <span>  */}
+                   <div>   
                         <small>
                         rating: {rating}
                         </small>  
-                    {/* </span> */}
                    </div>
                   
                     

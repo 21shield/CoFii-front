@@ -1,16 +1,16 @@
-import React, {useState} from 'react';
-import { useSelector, useDispatch} from 'react-redux';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { createComment } from '../api/index'
+import { newComment } from '../store/shopActions'
+
 export default function NewComment(props) {
     const dispatch = useDispatch()
-
     const [state, setState] = useState({
         content: "",
         coffee_shop_id: props.shop.external_id
     })
     
     const handleChange = (e) => {
-        console.log("from in the change", state)
         setState({
             ...state,
             [e.target.name]: e.target.value
@@ -21,11 +21,13 @@ export default function NewComment(props) {
         e.preventDefault()
         createComment(state)
         .then((data) => {
-            console.log(data)
-        }
-        )
+            dispatch(newComment(data.comment,props.shop.external_id ));
+            setState({
+                content: "",
+                coffee_shop_id: props.shop.external_id
+            });
+        })
     }
-
     return(
     <div>
         <form onSubmit={handleSubmit}>

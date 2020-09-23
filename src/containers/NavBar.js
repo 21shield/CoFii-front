@@ -7,14 +7,15 @@ import '../styles/navBar.css'
 export default function NavBar(params) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
-
+    console.log(user)
+    
     const handleClick = (e) => {
         dispatch(logout()) 
     }
     
     return(
         <div className="navbar">  
-                <h1> Co - Fii </h1> 
+                <h1> Co - Fi </h1> 
            <form>
                <input 
                type="search" 
@@ -27,7 +28,7 @@ export default function NavBar(params) {
                     logOut
                 </NavLink>  
                 <Link to={`/${user.username}`} >
-                    <img className="imgicon" src="https://i.pinimg.com/originals/b5/71/88/b571880718af4f8605807f167f497a9d.jpg" alt="Coffee Cup" />
+                    <img className="imgicon" src={user.avatar} alt="user icon" />
                 </Link>
                
         

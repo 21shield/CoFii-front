@@ -17,6 +17,11 @@ const reducer = (state = defaultState, action) => {
                 ...state,
                 shops: action.payload
             }
+        case "ADD_COMMENT":
+            return{
+                ...state,
+                shops: action.payload
+            }
         default:
             return state
     }

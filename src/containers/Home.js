@@ -11,7 +11,7 @@ import {saveShops} from '../store/shopActions'
 export default function Home () {
 
     const dispatch = useDispatch()
-    const state = useSelector(state => state)
+    // const state = useSelector(state => state)
     const location = useSelector(state => state.user.userLocation)
 
     useEffect(() => {
@@ -31,13 +31,13 @@ export default function Home () {
 
     useEffect(() => {
         // launch search for current coordinates
-        let location = state.user.userLocation
+        // let location = state.user.userLocation
         getCoffeeShops(location)
         .then((data) => {
             dispatch(saveShops(data))
         })
     },
-    [location])
+    [dispatch, location])
 
      
 

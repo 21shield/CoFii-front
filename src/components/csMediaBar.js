@@ -10,6 +10,7 @@ export default function CsMediaBar(props) {
 
     const handleClick = (e) => {
         setClick(!click)
+        // send request to back end to favorites to create a connecttion to the user and the coffee shops
         
     }
     return(

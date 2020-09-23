@@ -10,7 +10,7 @@
     /* flex-wrap: wrap; */
     /* justify-content: space-between; */
     /* height: 3000px; Used to enable scrolling */
-    background: linear-gradient(55deg, #b5d6ba 0%,  #cbecd0 34%,#dbf0de 51%,#f5f8f5 85%);
+    background: linear-gradient(55deg, #e4e1d2 0%,  #e6eccb 34%,#f0f0db 51%,#f8f8f5 85%);
 }
 
 .map {
@@ -19,3 +19,20 @@
     /* left: 80px; */
     /* top: -150rem; */
 }
+
+.beanLocation img{
+    width: 20px;
+    height: 20px; 
+    border-radius: 40px;
+    transition: transform .8s; 
+}
+
+
+.beanLocation:hover {
+    transform: scale(2.5);
+    background-color: rgb(63, 191, 191, .5);
+    border-radius: 10px;
+    
+} 
+
+

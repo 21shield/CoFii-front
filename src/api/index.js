@@ -17,15 +17,42 @@ export const getCoffeeShops = (coords) => {
   }
 
 
-  export const createComment = (input) => {
-    return fetch(`http://localhost:3000/comments`,{
-        method:"POST",
+export const createComment = (input) => {
+  return fetch(`http://localhost:3000/comments`,{
+      method:"POST",
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify(input),
+  })
+     .then(r => r.json())
+}
+
+export const createFavorite = (shopId) => {
+  return fetch(`http://localhost:3000/favorites`,{
+      method:"POST",
+      headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.token}`
+      },
+      body: JSON.stringify({id:shopId}),
+  })
+     .then(r => r.json())
+}
+
+export const removeFavorite = (shopId) => {
+    return fetch(`http://localhost:3000/removeFav`,{
+        method:"DELETE",
         headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${localStorage.token}`
-          },
-        body: JSON.stringify(input),
+        },
+        body: JSON.stringify({id:shopId}),
     })
-      .then(r => r.json())
+       .then(r => r.json())
   }
+
+
+
   
