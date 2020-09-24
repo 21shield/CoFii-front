@@ -103,3 +103,11 @@ const clearForm = () => {
     return action          
 }
 
+
+export const addFave = (fav) => {
+    const action = {
+        type: "ADD_FAVORITE",
+        payload: fav
+    }
+    return action
+}

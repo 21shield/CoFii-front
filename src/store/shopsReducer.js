@@ -9,7 +9,7 @@ const reducer = (state = defaultState, action) => {
         case "SET_FAVORITES":
             return{
                 ...state,
-                faveShops: action.payload
+                faveShops: [...action.payload]
             }
             
         case "SET_NEARBY_SHOPS":
@@ -21,6 +21,11 @@ const reducer = (state = defaultState, action) => {
             return{
                 ...state,
                 shops: action.payload
+            }
+        case "ADD_TO_FAVES":
+            return{
+                ...state,
+                faveShops: action.payload
             }
         default:
             return state

@@ -10,7 +10,7 @@
   width: 100%;
   height: 1rem;
   align-content: center;
-  border-bottom: solid 1px rgb(247, 223, 128);
+  /* border-bottom: solid 1px rgb(247, 223, 128); */
   transition: top 0.3s;
   position: fixed;
   color: rgb(216, 194, 68);

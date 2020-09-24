@@ -7,7 +7,7 @@ import '../styles/navBar.css'
 export default function NavBar(params) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
-    console.log(user)
+    // console.log(user)
     
     const handleClick = (e) => {
         dispatch(logout()) 

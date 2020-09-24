@@ -6,13 +6,15 @@ import { userLocation } from '../store/userActions'
 import { getCoffeeShops } from '../api/index'
 import { updateLocation  } from '../store/locationActions'
 import '../styles/homePage.css'
-import {saveShops} from '../store/shopActions'
+import { saveShops } from '../store/shopActions'
 
 export default function Home () {
 
     const dispatch = useDispatch()
     // const state = useSelector(state => state)
     const location = useSelector(state => state.user.userLocation)
+    const favs = useSelector(state=> state.user.currentUser.favorites)
+    
 
     useEffect(() => {
         navigator.geolocation.getCurrentPosition(
@@ -40,7 +42,7 @@ export default function Home () {
     [dispatch, location])
 
      
-
+   console.log("from the home page",favs)
     return(
         <div className ="homePage">
             <NavBar/>

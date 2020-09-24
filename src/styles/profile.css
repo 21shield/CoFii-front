@@ -1,3 +1,9 @@
+.profilePage{
+    display: flex;
+    flex-direction: column;
+}
+
+
 .userProfile{
     display: flex;
     flex-direction: column;
@@ -16,8 +22,35 @@
 .userInfo{
     display: flex;
     flex-direction: row;
-    float: right;
-    border: solid 2px cornflowerblue;
+    /* float: right; */
+    /* border: solid 2px cornflowerblue; */
     background-color: cornsilk;
     border-bottom: solid 1px rgb(101, 85, 20);
+}
+
+
+.userFaves{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.faveShop{
+    display: flex;
+    flex-direction: column;
+    /* flex-wrap: wrap; */
+    /* border: solid 2px cornflowerblue; */
+    background-color: rgb(236, 252, 248, 0.6);
+    border: solid 1px rgb(20, 101, 63);
+    padding: 1em;
+    margin: 2px;
+    max-width: 15rem;
+    
+}
+
+.faveShop img{
+    height: 10em;
+    width: 10em;
+    border-radius: 50%;
 }

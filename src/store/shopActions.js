@@ -1,4 +1,5 @@
 import store from './index'
+// import { requestFaves } from '../api/index'
 
 export const saveShops  = (arr) => {
     const action = {
@@ -31,3 +32,15 @@ const updateShops = (arr) => {
     return action
 }
 
+
+
+// get faves
+
+
+export const updateFavList = (arr) =>{
+    const action ={
+        type: "SET_FAVORITES",
+        payload: arr
+    }
+    return action
+}

@@ -1,5 +1,7 @@
 import React, {useState}  from 'react';
 import '../styles/coffeeShopCard.css'
+
+
 export default function CsMediaBar(props) {
     // console.log("from mediaBar", props)
     // this needs on click events

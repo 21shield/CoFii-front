@@ -41,6 +41,8 @@ export const createFavorite = (shopId) => {
      .then(r => r.json())
 }
 
+
+
 export const removeFavorite = (shopId) => {
     return fetch(`http://localhost:3000/removeFav`,{
         method:"DELETE",
@@ -54,5 +56,16 @@ export const removeFavorite = (shopId) => {
   }
 
 
+// export const requestFaves = (userId) => {
+//     return fetch(`http://localhost:3000/userfavorites`,{
+//         method:"POST",
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'Authorization': `Bearer ${localStorage.token}`
+//         },
+//         body: JSON.stringify({id: userId})
+//     })
+//     .then(r => r.json())
+// }
 
   

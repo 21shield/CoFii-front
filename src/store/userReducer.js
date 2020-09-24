@@ -57,7 +57,17 @@ const reducer = (state = defaultState, action ) => {
                     ...state,
                     userLocation: action.payload
                 }
-
+            case "ADD_FAVORITE":
+                return{
+                    ...state,
+                    currentUser:{
+                        ...state.currentUser,
+                        favorites:[
+                            ...state.currentUser.favorites,
+                            action.payload
+                        ]
+                    }
+                }
         default:
             return state
     }
