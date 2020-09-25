@@ -8,14 +8,16 @@ export default function NavBar(params) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
     // console.log(user)
-    
+   
     const handleClick = (e) => {
         dispatch(logout()) 
     }
     
     return(
         <div className="navbar">  
+            <NavLink to={"/"} >
                 <h1> Co Fi </h1> 
+            </NavLink>  
            <form>
                <input 
                type="search" 

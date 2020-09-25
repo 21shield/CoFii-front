@@ -7,8 +7,9 @@ const defaultState = {
         username: "",
         email:"",
         password: "",
-        password_confirmation: ""
-    }
+        password_confirmation: "",
+       
+    },
    
 };
 
@@ -34,40 +35,41 @@ const reducer = (state = defaultState, action ) => {
                     password_confirmation: ''
                 } 
             }
-            case "LOGOUT":
-                return{
-                    ...state,
-                    currentUser: null,
-                    form:{
-                        username: "",
-                        email:"",
-                        password: "",
-                        password_confirmation: ''
-                    } 
-                }
+        case "LOGOUT":
+            return{
+                ...state,
+                currentUser: null,
+                form:{
+                    username: "",
+                    email:"",
+                    password: "",
+                    password_confirmation: ''
+                } 
+            }
                 
-            case 'LOGIN':
-                return{
-                    ...state,
-                    currentUser: action.payload
-                }
+        case 'LOGIN':
+            return{
+                ...state,
+                currentUser: action.payload
+            }
 
-            case 'SET_USER_LOCATION':
-                return {
-                    ...state,
-                    userLocation: action.payload
+        case 'SET_USER_LOCATION':
+            return {
+                ...state,
+                userLocation: action.payload
+            }
+
+        case "ADD_FAVORITE":
+            return{
+                ...state,
+                currentUser:{
+                    ...state.currentUser,
+                    favorites:[
+                        ...state.currentUser.favorites,
+                        action.payload
+                    ]
                 }
-            case "ADD_FAVORITE":
-                return{
-                    ...state,
-                    currentUser:{
-                        ...state.currentUser,
-                        favorites:[
-                            ...state.currentUser.favorites,
-                            action.payload
-                        ]
-                    }
-                }
+            }
         default:
             return state
     }

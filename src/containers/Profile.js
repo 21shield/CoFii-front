@@ -6,6 +6,7 @@ import NavBar from './NavBar'
 import UserInfoCard from './UserInfoCard'
 import UsersFavorites from '../components/UsersFavorites.js'
 
+
 export default function Profile(){
     const dispatch = useDispatch()
     const {favorites} = useSelector(state => state.user.currentUser)

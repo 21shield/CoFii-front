@@ -1,7 +1,9 @@
 //coffee shops get
 
+import store from "../store/index"
+
 export const getCoffeeShops = (coords) => {
-   
+    
     return fetch(`http://localhost:3000/loadShops`,{
         method:"POST",
         headers: {
@@ -56,6 +58,19 @@ export const removeFavorite = (shopId) => {
   }
 
 
+
+export const updateUser = (form) =>{
+    let userid = store.getState().user.currentUser.id
+   console.log(store.getState().user.currentUser.id, store.getState().user.currentUser)
+    return fetch (`http://localhost:3000/users/${userid}`, {
+        method: "PATCH",
+        headers: {
+           'Authorization': `Bearer ${localStorage.token}` 
+        },
+        body: form
+    })
+    .then(r => r.json())
+}
 // export const requestFaves = (userId) => {
 //     return fetch(`http://localhost:3000/userfavorites`,{
 //         method:"POST",
