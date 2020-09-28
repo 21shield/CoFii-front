@@ -4,7 +4,9 @@ import '../styles/shopPanel.css'
 import CoffeeShopCard from '../components/coffeeShopCard'
 import Map from '../components/Map'
 
+
 export default function CoffeeShops() {
+  
     // this is an array to play with
     const coffeeShops = useSelector(state => state.shops.shops)
   
@@ -19,7 +21,9 @@ export default function CoffeeShops() {
              {renderShops()}
             {/* </div> */}
             
-            <Map/>
+            <div className="map">
+                <Map/>
+            </div>
         </div>
     )
 }

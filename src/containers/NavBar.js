@@ -18,13 +18,16 @@ export default function NavBar(params) {
             <NavLink to={"/"} >
                 <h1> Co Fi </h1> 
             </NavLink>  
+
            <form>
                <input 
                type="search" 
-               placeholder="search"
+               placeholder="coffee shops near"
                name="search"
                />
+               <button type="submit"> "👓" </button>
            </form>
+
            <div className="profileinfo">
                <div>
                <NavLink to="/" onClick={handleClick}>

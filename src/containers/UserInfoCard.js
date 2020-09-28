@@ -15,10 +15,10 @@ export default function Profile(){
     const [modalIsOpen, setIsOpen] = useState(false)
 
     const [formState, setFormState] = useState({
-        avatar: {},
+        avatar: user.avatar,
         email: user.email,
-        bio: '',
-        password: '',
+        bio: user.bio,
+        password: "",
         password_confirmation: ''
     })
 
@@ -31,6 +31,7 @@ export default function Profile(){
             ...prevState,
             [e.target.name]: value
         }))
+     
        
     }
 
@@ -47,8 +48,24 @@ export default function Profile(){
         updateUser(form)
         .then((data) => {
             console.log('FROM THE UPDATE',data)
+            const action = {
+                type: "LOGIN",
+                payload: data
+            }
+            // dispatch(action)
+            console.log(user, "from the update")
+            // new data should be rendered on the page
         }
         )
+        // after sumbit clear the form
+        setFormState({  
+            avatar: user.avatar,
+            email: user.email,
+            bio: user.bio,
+            password: "",
+            password_confirmation: ''})
+
+        closeModal()
     }
 
 
@@ -82,6 +99,7 @@ export default function Profile(){
                     onAfterOpen={afterOpenModal}
                     onRequestClose={closeModal}
                     // style={customStyles}
+                    className="Modal"
                     contentLabel="Example Modal"
                     >
                             
@@ -89,12 +107,13 @@ export default function Profile(){
                             <div>
                                 <h3> Edit </h3>
                                 <hr/>
-                                <form className="edit-form" onSubmit={handleSubmit}>
+                                <form className="edit-form" onSubmit={handleSubmit} autoComplete="off">
                                     <label>Image Upload</label>
                                     <input 
                                     type="file" 
                                     name="avatar" 
                                     onChange={handleChange}
+                                    
                                         />
                                     <br/>
                                     <label htmlFor="email">
@@ -103,6 +122,7 @@ export default function Profile(){
                                         type="email" 
                                         name="email" 
                                         value={email} 
+                                        autoComplete="email"
                                         onChange={handleChange} 
                                         placeholder="Email" 
                                         
@@ -110,20 +130,22 @@ export default function Profile(){
 
                                     </label>
 
-                                    <label htmlFor="password">
+                                    <label htmlFor="current-password">
                                         <input 
-                                        type="new-password" 
+                                        type="password" 
                                         name="password" 
-                                        placeholder="Password" 
+                                        placeholder="Password"
                                         value={password} 
                                         onChange={handleChange}
+                                        autoComplete="current-password"
                                         />
                                     </label>
 
-                                    <label htmlFor="password_confirmation">
+                                    <label htmlFor="new-password">
                                         <input 
                                         type="password" 
                                         name="password_confirmation" placeholder="Password Confirmation"
+                                        autoComplete="new-password"
                                         value={password_confirmation} 
                                         onChange={handleChange}
                                         />

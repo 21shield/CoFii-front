@@ -1,20 +1,21 @@
 .shopPanel{
-    /* border: solid 2px cornflowerblue; */
-    /* float: left; */
-    /* margin-right: 28px; */
+    border: solid 2px cornflowerblue;
     width: 95%;
     display: flex;
     flex-direction: column;
     margin-top:100px;
     display: flex;
-    /* flex-wrap: wrap; */
+    flex-wrap: wrap;
     justify-content: space-between;
     padding: 1em;
+    /* overflow: hidden; */
     /* height: 3000px; Used to enable scrolling */
     /* background: linear-gradient(55deg, #e4e1d2 0%,  #e6eccb 34%,#f0f0db 51%,#f8f8f5 85%); */
 }
 
 .map {
+    display: flex;
+    flex-direction: row;
     position: relative;
     position: fixed;
     float: right;

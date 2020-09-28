@@ -77,3 +77,26 @@
     align-content: space-between;
 
 }
+
+.Modal{
+    /* top: 50%;
+    left: 50%; */
+    /* margin: 5em; */
+    padding: 2em;
+    display: flex;
+    flex-direction: column;
+    /* align-content: center; */
+    background: cornsilk;
+    height: 40%;
+    width: 40%;
+    margin: auto;
+    overflow: auto;
+}
+
+.edit-form{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    margin: 2em;
+}

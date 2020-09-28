@@ -6,8 +6,9 @@ import { addFave } from '../store/userActions'
 
 export default function FavButton(props) {
     const [click, setClick] = useState(false)
+    
     const {favorites} = useSelector(state => state.user.currentUser)
-    console.log("from the faveButton", favorites)
+    // console.log("from the faveButton", favorites)
 // fetch and check for the fav show the heart if its been favorited
     
     const dispatch = useDispatch()  

@@ -61,8 +61,8 @@ export const removeFavorite = (shopId) => {
 
 export const updateUser = (form) =>{
     let userid = store.getState().user.currentUser.id
-   console.log(store.getState().user.currentUser.id, store.getState().user.currentUser)
-    return fetch (`http://localhost:3000/users/${userid}`, {
+//    console.log(store.getState().user.currentUser.id)
+    return fetch (`http://localhost:3000/user/${userid}`, {
         method: "PATCH",
         headers: {
            'Authorization': `Bearer ${localStorage.token}` 

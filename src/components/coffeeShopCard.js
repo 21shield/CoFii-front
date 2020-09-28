@@ -1,17 +1,26 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 // import { useSelector} from 'react-redux';
 import '../styles/coffeeShopCard.css'
 import CsMediaBar from './csMediaBar'
 import NewComment from './NewComment'
 import CommentListing from './CommentListing'
 import FavButton from './FavButton'
+import AOS from 'aos';
+import 'aos/dist/aos.css'; 
+
+
 
 export default function CoffeeShopCard(props) {
+    useEffect(() => {
+        AOS.init({duration: 2000})
+    },[]
+    )
 
     const {name, image_url, location, rating} = props.shop
 
     return(
-        <div className="csCard">
+        <div className="csCard" data-aos="fade-up"
+        data-aos-duration="3000">
             <div className="cardHeader">
                 <FavButton shopId={props.shop.external_id}/>
                <div><h3>{name}</h3></div>
