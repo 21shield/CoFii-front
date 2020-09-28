@@ -1,4 +1,6 @@
 import React from 'react';
+import { Button, Tooltip, Avatar } from 'antd';
+import { SearchOutlined } from '@ant-design/icons';
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../store/userActions'
@@ -25,7 +27,9 @@ export default function NavBar(params) {
                placeholder="coffee shops near"
                name="search"
                />
-               <button type="submit"> "👓" </button>
+                    <Tooltip title="Find Shops Near">
+                        <Button shape="circle" icon={<SearchOutlined />} />
+                    </Tooltip>
            </form>
 
            <div className="profileinfo">
@@ -37,7 +41,8 @@ export default function NavBar(params) {
                
                 <div>
                 <Link to={`/${user.username}`} >
-                    <img className="imgicon" src={user.avatar} alt="user icon" />
+                    <Avatar src={user.avatar} size={60}/>
+                        {/* <img  className="imgicon" src={user.avatar} alt="user icon" /> */}
                 </Link>
                 </div>
                 

@@ -1,10 +1,12 @@
+import { Button, Tooltip } from 'antd';
+import { SettingOutlined } from '@ant-design/icons';
+
 import React, { useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal';
 import { updateUser } from '../api/index'
 import '../styles/profile.css'
 Modal.setAppElement('#root')
-
 
 
 
@@ -91,7 +93,11 @@ export default function Profile(){
 
            <div className="userInfo">
                 {user.bio ? user.bio :<h1>ADD SOMETHING TO YOU BIO</h1>}
-                <button onClick={openModal} > Edit Profile </button>
+                <Tooltip title="Edit Profile">
+                    <Button onClick={openModal} shape="circle" icon={<SettingOutlined/>}/>
+                </Tooltip>
+               
+                
 
                 <Modal
                     // className="editModalForm"
