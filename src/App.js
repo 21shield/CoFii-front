@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
-import Login from  './containers/Login'
-import SignUp from './containers/SignUp'
 import Home from './containers/Home'
 import Profile from './containers/Profile'
+import LandingPage from './containers/LandingPage'
 import { useSelector, useDispatch } from 'react-redux'
 import { autoLogin} from './store/userActions'
-import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom'
+import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
 import './App.css';
 
@@ -25,23 +24,20 @@ function App() {
 
       <Switch>
 
-        <Route exact path="/signup">
-          <SignUp/>
-        </Route>
-
        {user ? <Route exact path={`/${user.username}`}>
           <Profile/>
         </Route> : null}
 
-        <Route exact path="/login">
+        {/* <Route exact path="/login">
             {!!user ? <Redirect to='/'/> :  <Login/> }
-        </Route>
+        </Route> */}
 
         <Route exact path='/'>
-          {!!user ?  <Home/> : <Redirect to="/login"/>}
+          {!!user ?  <Home/> : <LandingPage/>}
         </Route>
 
       </Switch>
+
     </Router>
       
   );

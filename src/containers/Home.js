@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Layout } from 'antd';
 import { useSelector, useDispatch } from 'react-redux';
 import NavBar from './NavBar'
 import CoffeeShops from './CoffeeShops'
@@ -44,10 +45,14 @@ export default function Home () {
      
    console.log("from the home page",favs)
     return(
-        <div className ="homePage">
-            <NavBar/>
-            Home page
-            <CoffeeShops/>
-        </div>
+        <Layout>
+            <div className ="homePage">
+                
+                <NavBar/>
+                
+                <CoffeeShops/>
+            </div>
+        </Layout>
+      
     )
 }

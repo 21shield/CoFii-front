@@ -16,14 +16,13 @@ export default function CoffeeShops() {
 
     return(
         <div className="shopPanel">
-            SHOP PANNEL
             {/* <div className="shops"> */}
-             {renderShops()}
+            <div className="cardListings">
+                {renderShops()}
+            </div>
+            <Map/>
             {/* </div> */}
             
-            <div className="map">
-                <Map/>
-            </div>
         </div>
     )
 }

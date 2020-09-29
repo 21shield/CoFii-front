@@ -1,14 +1,22 @@
 import React from 'react';
+import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined  } from '@ant-design/icons';
+import { Button, Input, Space,Form } from 'antd';
+
 import { useSelector, useDispatch } from 'react-redux';
-import { Link} from 'react-router-dom';
+// import { Link} from 'react-router-dom';
 import { loginUser } from '../store/userActions'
+import '../styles/userForm.css'
+
+
+
+
 
 export default function Login(props) {
 
     const dispatch = useDispatch()
 
     const {username, password} = useSelector(state => state.user.form)
-    const user = useSelector(state => state.user.currentUser)
+    const user = useSelector(state => state.user.form)
 
     const handleChange = (e) => {
         const action = {
@@ -20,45 +28,73 @@ export default function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
+        console.log('THIS HAS BEEN SUBMITED')
         dispatch(loginUser())
     }
 
+    const onFinishFailed = errorInfo => {
+        console.log('Failed:', errorInfo);
+      };
+
+    console.log(user)
     return(
-        <div className ="login">
-            <img src="https://i.pinimg.com/originals/19/c6/87/19c68725379ef141e12706259870063e.gif" alt="coffee" />
-            <form className="login-form" onSubmit={handleSubmit}>
-                <label>
-                    <input 
-                    type="text"
-                    name="username" 
-                    placeholder="username"
+        // <div className ="login">
+           
+            <Space layout="vertical">
+            <Form 
+            className="form" 
+            // onFinishFailed={onFinishFailed}
+            // onSubmit={handleSubmit}
+            // form={Form.useForm()}
+            // initialValues={{ remember: true }}
+            // layout="horizontal"
+            >
+                <Form.Item
+                  rules={[{ required: true, message: 'Enter Username!' }]}
+                  name="username"
+                  
+                  >
+                {/* <label> */}
+                    <Input 
+                    prefix={<UserOutlined />}
+                    name="username"
                     value={username}
-                    onChange={handleChange}
+                      onChange={handleChange}
+                    // type="text"
+                    placeholder="Username"
+                    
                     />
 
-                </label>
+                {/* </label> */}
+                </Form.Item>
+               
 
-                <label>
-                    <input 
+                <Form.Item
+                 name="password"
+                 rules={[{ required: true, message: 'Enter password!' }]}
+                 >
+                    <Input.Password 
                     type="password"
                     name="password"
-                    placeholder="password"
+                    placeholder="Password"
                     value={password}
                     onChange={handleChange}
+                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
-                </label>
+                </Form.Item>
+                
+                
+                <Form.Item>
+                    <Button htmlType="submit" onClick={handleSubmit} > LogIn </Button>
+                </Form.Item>
                
-                <button type="submit" > Login </button>
+                        
+            </Form>
+            <a className="login-form-forgot" href="">Forgot password</a>
+                or
+                <a onClick={props.click}> Sign Up </a>
+            </Space> 
             
-            </form>
-            <div>
-                Dont have an account?
-                <Link to="/signup">
-                    <button> Sign Up </button>
-                </Link>
-            </div>
-       
-            
-        </div>
+        // {/* // </div> */}
     )
 }

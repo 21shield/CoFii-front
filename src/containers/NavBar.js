@@ -1,5 +1,6 @@
 import React from 'react';
-import { Button, Tooltip, Avatar } from 'antd';
+import { Button, Tooltip, Avatar, Layout, Menu} from 'antd';
+
 import { SearchOutlined } from '@ant-design/icons';
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
@@ -10,16 +11,22 @@ export default function NavBar(params) {
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
     // console.log(user)
-   
+    
     const handleClick = (e) => {
         dispatch(logout()) 
     }
     
     return(
-        <div className="navbar">  
-            <NavLink to={"/"} >
-                <h1> Co Fi </h1> 
-            </NavLink>  
+        <Layout.Header mode='horizontal'>
+              <div >
+                    <NavLink className="logo" to={"/"} >
+                        Co Fi 
+                    </NavLink>
+                </div>
+            {/* <div className='logo'><p>CoFi</p></div> */}
+            
+
+        {/* <div className="navbar">   */}
 
            <form>
                <input 
@@ -32,25 +39,28 @@ export default function NavBar(params) {
                     </Tooltip>
            </form>
 
-           <div className="profileinfo">
-               <div>
-               <NavLink to="/" onClick={handleClick}>
-                    logOut
-                </NavLink>  
-               </div>
-               
+           {/* <div className="profileinfo"> */}
                 <div>
                 <Link to={`/${user.username}`} >
                     <Avatar src={user.avatar} size={60}/>
-                        {/* <img  className="imgicon" src={user.avatar} alt="user icon" /> */}
                 </Link>
                 </div>
-                
-                
-               
-        
-           </div>
+                <Menu mode='horizontal'defaultSelectedKeys={['2']}>
+              
+
+                <Menu.Item>
+                    <NavLink 
+                        to="/" 
+                        onClick={handleClick}
+                    >
+                        LogOut
+                    </NavLink>
+                </Menu.Item>
+
+            </Menu>
+
+           {/* </div>  */}
           
-        </div>
+        </Layout.Header>
     )
 }

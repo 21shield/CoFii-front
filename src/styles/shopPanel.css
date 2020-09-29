@@ -1,26 +1,24 @@
 .shopPanel{
     border: solid 2px cornflowerblue;
-    width: 95%;
+    width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     margin-top:100px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    /* flex-wrap: wrap; */
+    /* justify-content: space-between; */
     padding: 1em;
     /* overflow: hidden; */
     /* height: 3000px; Used to enable scrolling */
     /* background: linear-gradient(55deg, #e4e1d2 0%,  #e6eccb 34%,#f0f0db 51%,#f8f8f5 85%); */
 }
 
+.cardListings {
+    width: 50%;
+}
+
 .map {
-    display: flex;
-    flex-direction: row;
-    position: relative;
     position: fixed;
-    float: right;
-    left: 50rem;
-    /* top: -150rem; */
+    left: 52%;
 }
 
 .beanLocation img{

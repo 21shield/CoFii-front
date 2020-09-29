@@ -1,44 +1,52 @@
 .navbar{
   /* overflow: hidden; */
-  background-color:#ffffff;
+  /* background-color:#ffffff;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-between; */
   /* position: relative; */
-  padding: 2rem;
+  /* padding: 2rem;
   position: fixed;
   top: 0;
   width: 100%;
-  height: 1rem;
-  align-content: center;
+  height: 1rem; */
+  /* align-content: center; */
   /* border-bottom: solid 1px rgb(247, 223, 128); */
-  transition: top 0.3s;
+  /* transition: top 0.3s;
   position: fixed;
-  color: rgb(216, 194, 68);
+  color: rgb(216, 194, 68); */
+}
+
+.logo{
+  color: #385536;
+  font-family: "Titillium Web", serif;
+  font-size: 2rem;
+
+}
+
+.logo:hover{
+  color:  rgb(131, 124, 22);
 }
 
 
-
-
-
 .imgicon{
-
+/* 
     margin: 0%;
     padding: 0;
-    width: 70px;
+    width: 70px; */
     /* float: right; */
-    height: 70px;
-    border-radius: 100px;
+    /* height: 70px; */
+    /* border-radius: 100px; */
     /* margin-bottom: 10px; */
   
-    border: solid 1px #213120;
+    /* border: solid 1px #213120;s */
   }
 
   .profileinfo{
-    display: flex;
+    /* display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding-right: 6rem;
-    margin-left: 3rem;
+    margin-left: 3rem; */
     /* float: right; */
    
   }

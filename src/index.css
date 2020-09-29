@@ -8,16 +8,10 @@
 }
 
 body{
-  background: url("https://images.unsplash.com/photo-1523556997878-a6c9fbce3cc1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80") no-repeat fixed center;
-  background-size: auto;
+   /* background: url("https://images.unsplash.com/photo-1523556997878-a6c9fbce3cc1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1649&q=80") no-repeat fixed center; */
+   background: rgb(227, 208, 145);
+  /* background-size: auto; */ 
   /* background-blend-mode: lighten; */
 }
 
 
-/* .userLocation{
-  background-size: cover;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  cursor: pointer;
-} */

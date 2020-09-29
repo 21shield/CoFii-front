@@ -1,0 +1,97 @@
+.aboutSection{
+    position: relative;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+img{
+    width: 250px;
+    width: clamp(240px, 40vw, 50px);
+    /* margin-bottom: 1em; */
+    border-radius: 50%;
+    /* background-color: transparent; */
+}
+
+.aboutSection{
+    background: rgba(211, 179, 72, 0.3);
+    overflow: hidden;
+}
+
+.aboutColumn{
+    padding: clamp(1rem, 8vw, 5rem);
+    max-width: 50%;
+}
+
+.aboutSection h1{
+    font-family: "Titillium Web", serif;
+    font-size: clamp(60px, 8vw, 200px);
+    font-weight: 700;
+    line-height: 3vw;
+    color:  rgba(35, 119, 35, 0.5);
+    text-transform: capitalize;
+}
+
+.aboutSection h2{
+    font-size: clamp(18px, 2.5vw, 60px);
+    color: darkgreen;
+    padding-left: 3rem;
+}
+
+.aboutSection p{
+    color: rgb(131, 124, 22);
+    padding-right: 1rem;
+}
+
+
+
+
+
+
+/* for the blob */
+.custom-shape-divider-bottom-1601332540 {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 70%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(200deg);
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1601332540 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 500px;
+    z-index: -1;
+}
+
+.custom-shape-divider-bottom-1601332540 .shape-fill {
+    fill: #f0dab7;
+   
+}
+
+.custom-shape-divider-top-1601332984 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 90%;
+    overflow: hidden;
+    line-height: 0;
+    z-index: -1;
+}
+
+.custom-shape-divider-top-1601332984 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 500px;
+    transform: rotateY(200deg);
+}
+
+.custom-shape-divider-top-1601332984 .shape-fill {
+    fill: rgba(247, 216, 131, 0.5);
+}

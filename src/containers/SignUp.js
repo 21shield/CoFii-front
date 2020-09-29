@@ -1,7 +1,15 @@
 import React from 'react';
+import { Button, Input, Form } from 'antd';
 import { useSelector, useDispatch} from 'react-redux'
 import { useHistory } from 'react-router-dom';
 import { signUpUser } from '../store/userActions'
+import { EyeInvisibleOutlined, EyeTwoTone, UserOutlined } from '@ant-design/icons';
+import '../styles/userForm.css'
+
+
+
+
+
 
 
 export default function SignUp(props) {
@@ -26,20 +34,26 @@ export default function SignUp(props) {
     
     return(
         <div className="signup">
-            <form className="SignU-form" onSubmit={handleSubmit}>
-                <label htmlFor="username">
-                    <input type="text" 
+            <Form className="form" onSubmit={handleSubmit}>
+            <Form.Item
+                rules={[{ required: true, message: 'Enter Username!' }]}
+                name="username"   
+                  >
+            
+                    <Input 
+                    type="text" 
                     name="username"
                     placeholder="Username"
                     value={username} 
                     onChange={handleChange}
+                    prefix={<UserOutlined />}
                     />
 
-                </label>
+            </Form.Item>
 
-                <label htmlFor="email">
+                <Form.Item htmlFor="email">
 
-                    <input 
+                    <Input 
                     type="email" 
                     name="email" 
                     onChange={handleChange} 
@@ -47,30 +61,41 @@ export default function SignUp(props) {
                     value={email} 
                     />
 
-                </label>
+                </Form.Item>
 
-                <label htmlFor="password">
-                    <input 
-                    type="password" 
-                    name="password" 
-                    placeholder="Password" 
-                    value={password} 
+                <Form.Item
+                 name="password"
+                 rules={[{ required: true, message: 'Enter password!' }]}
+                 >
+                <Input.Password 
+                    type="password"
+                    name="password"
+                    placeholder="Password"
+                    value={password}
                     onChange={handleChange}
+                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
-                </label>
+                </Form.Item>
 
-                <label htmlFor="password_confirmation">
-                    <input 
+                <Form.Item
+                 name="password_confirmation"
+                 rules={[{ required: true, message: 'Enter matching password!' }]}
+                 >
+                    <Input.Password 
                     type="password" 
                     name="password_confirmation" placeholder="Password Confirmation"
                     value={password_confirmation} 
                     onChange={handleChange}
+                    iconRender={visible => (visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />)}
                     />
-                </label>
+               </Form.Item>
                
-                <button type="submit" > SignUp </button>
-            
-            </form>
+                <Button type="submit" onClick={handleSubmit} > SignUp </Button>   
+            </Form>
+            <br/>
+                 Have an account?
+    
+                <Button onClick={props.click}> Sign In </Button>
         </div>
     )
 }

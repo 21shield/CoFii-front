@@ -46,7 +46,7 @@ export default function Map() {
   
 
     return(
-        <div className= "map">
+        <div className="map">
         <ReactMapGl
         {...location}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
