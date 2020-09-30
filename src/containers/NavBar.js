@@ -1,21 +1,35 @@
-import React from 'react';
-import { Button, Tooltip, Avatar, Layout, Menu} from 'antd';
-
-import { SearchOutlined } from '@ant-design/icons';
+import React, { useState } from 'react';
+import { Button, Tooltip, Avatar, Layout, Menu, Input, Form} from 'antd';
+import { saveShops } from '../store/shopActions'
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../store/userActions'
 import '../styles/navBar.css'
+import { getCoffeeShops } from '../api/index'
+
+
+
+
+
 
 export default function NavBar(params) {
+    const { Search } = Input;
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
-    // console.log(user)
+    const [search, setSearch] = useState("")
     
     const handleClick = (e) => {
         dispatch(logout()) 
     }
+    const handleSubmit = (e) => {
+        getCoffeeShops(search)
+        .then(data =>dispatch(saveShops(data)))
+    }
     
+    const handleChange = (e) => {
+        setSearch(e.target.value)
+    }
+    console.log(search)
     return(
         <Layout.Header mode='horizontal'>
               <div >
@@ -23,21 +37,21 @@ export default function NavBar(params) {
                         Co Fi 
                     </NavLink>
                 </div>
-            {/* <div className='logo'><p>CoFi</p></div> */}
             
 
-        {/* <div className="navbar">   */}
 
-           <form>
-               <input 
+           <Form>
+               <Form.Item>
+               <Search
                type="search" 
-               placeholder="coffee shops near"
+               placeholder="coffee shops near..."
                name="search"
+               value={search}
+               onChange={handleChange}
+               onSearch={handleSubmit}
                />
-                    <Tooltip title="Find Shops Near">
-                        <Button shape="circle" icon={<SearchOutlined />} />
-                    </Tooltip>
-           </form>
+               </Form.Item>
+           </Form>
 
            {/* <div className="profileinfo"> */}
                 <div>

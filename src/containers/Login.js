@@ -28,7 +28,6 @@ export default function Login(props) {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        console.log('THIS HAS BEEN SUBMITED')
         dispatch(loginUser())
     }
 
@@ -59,7 +58,7 @@ export default function Login(props) {
                     prefix={<UserOutlined />}
                     name="username"
                     value={username}
-                      onChange={handleChange}
+                    onChange={handleChange}
                     // type="text"
                     placeholder="Username"
                     
