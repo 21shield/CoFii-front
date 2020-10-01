@@ -9,7 +9,6 @@ export const saveShops  = (arr) => {
     return action
 }
 
-// finds the obj up
 
 export const newComment = (comment, shopId) => {
     return function (dispatch){
@@ -31,10 +30,6 @@ const updateShops = (arr) => {
     }
     return action
 }
-
-
-
-// get faves
 
 
 export const updateFavList = (arr) =>{

@@ -22,12 +22,13 @@ export default function LandingPage (p) {
 
     return(
         <div>
-            <section className="aboutSection">
-                <div className="custom-shape-divider-top-1601332984">
+             <div className="custom-shape-divider-top-1601332984">
                     <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
                     <path d="M0,0V6c0,21.6,291,111.46,741,110.26,445.39,3.6,459-88.3,459-110.26V0Z" className="shape-fill"></path>
                     </svg>
                 </div>
+            <section className="aboutSection">
+               
 
                 <div className="aboutColumn">
                     <h1 data-aos="fade-up">Co Fi</h1>
@@ -40,12 +41,13 @@ export default function LandingPage (p) {
 
                 <div className="aboutColumn">
                     
-                    <img src={img} alt="coffee" />
+                    <img src="https://images.unsplash.com/photo-1458819714733-e5ab3d536722?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1997&q=80"alt="coffee" />
 
-
-                    {signedUp ? <Login click={handleClick} /> : <SignUp click={handleClick}/>}
-                    <div>
+                    {signedUp ? <Login click={handleClick} /> : <SignUp click={handleClick}/>} 
                    
+                <div>
+                    
+                    
             </div>
                 </div>
               

@@ -37,7 +37,8 @@ export default function FavButton(props) {
     }
 
     return(
-        <div className={click ? "heart is_animating": "heart" }
+        <div 
+        className={click ? "heart is_animating": "heart" }
         onClick={handleClick}>
             
         </div>

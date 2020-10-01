@@ -1,5 +1,5 @@
 .shopPanel{
-    border: solid 2px cornflowerblue;
+    /* border: solid 2px cornflowerblue; */
     width: 100%;
     display: flex;
     flex-direction: row;

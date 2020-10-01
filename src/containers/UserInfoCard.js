@@ -72,7 +72,6 @@ export default function Profile(){
 
 
     const openModal = ()=>{
-
         setIsOpen(true);
       }
     const closeModal = ()=>{
@@ -86,13 +85,16 @@ export default function Profile(){
 
     return(
         <div className="userProfile">
-           <div className="userIcon" >
-                <img src={user.avatar} alt={user} />
-                <h2>{user.username}</h2>
-           </div>
+            <div className="userInfoProf">
 
-           <div className="userInfo">
-                {user.bio ? user.bio :<h1>ADD SOMETHING TO YOU BIO</h1>}
+                <div className="userIcon" >
+                    <img src={user.avatar} alt={user} />
+                
+                </div>
+ 
+           <div className="displayProf">
+                <h4>{user.username}</h4>
+                {user.bio.length > 1 ? user.bio :<h1>ADD SOMETHING TO YOU BIO</h1>}
                 <Tooltip title="Edit Profile">
                     <Button onClick={openModal} shape="circle" icon={<SettingOutlined/>}/>
                 </Tooltip>
@@ -168,8 +170,9 @@ export default function Profile(){
                                 </div>
                         
                     </Modal>
-                
-           </div>
+                </div>
+
+            </div>  
         </div>
     )
 }

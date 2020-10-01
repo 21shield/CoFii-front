@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector} from 'react-redux';
 import '../styles/shopPanel.css'
-import CoffeeShopCard from '../components/coffeeShopCard'
+import CoffeeShopCard from '../components/CoffeeShopCard'
 import Map from '../components/Map'
 
 
@@ -11,7 +11,11 @@ export default function CoffeeShops() {
     const coffeeShops = useSelector(state => state.shops.shops)
   
     let renderShops = () => {
-       return coffeeShops.map((shop) => <CoffeeShopCard key={shop.external_id} shop={shop}/>)    
+        return coffeeShops.map((shop) => {
+            return <CoffeeShopCard 
+                key={shop.external_id} 
+                {...shop}
+            />})    
     }
 
     return(

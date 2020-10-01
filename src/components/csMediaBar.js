@@ -1,6 +1,6 @@
 import React, {useState}  from 'react';
 import '../styles/coffeeShopCard.css'
-
+import { Descriptions, Badge } from 'antd';
 
 export default function CsMediaBar(props) {
     // console.log("from mediaBar", props)
@@ -12,16 +12,14 @@ export default function CsMediaBar(props) {
 
     const handleClick = (e) => {
         setClick(!click)
-        // send request to back end to favorites to create a connecttion to the user and the coffee shops
-        
     }
+    console.log("from the media", props)
     return(
-        <div className="mediaBar">
-            <button onClick={handleClick}>
-                { click ? <i className="fas fa-heart"></i> :
-                <i className="far fa-heart"></i> }
-            </button>
-
+        <Descriptions 
+        className="mediaBar"
+        title="Shop Info"
+        >
+            <Descriptions.Item label="Product">Cloud Database</Descriptions.Item>
             <button>
                 <span>
                  <i className="far fa-comment"></i>
@@ -31,6 +29,6 @@ export default function CsMediaBar(props) {
             <button>
                 <i className="fas fa-share-alt"></i>
             </button>
-        </div>
+        </Descriptions>
     )
 }

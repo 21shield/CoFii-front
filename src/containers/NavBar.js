@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
-import { Button, Tooltip, Avatar, Layout, Menu, Input, Form} from 'antd';
+import { Avatar, Layout, Menu, Input, Form} from 'antd';
 import { saveShops } from '../store/shopActions'
 import { NavLink, Link } from "react-router-dom";
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../store/userActions'
 import '../styles/navBar.css'
 import { getCoffeeShops } from '../api/index'
-
-
+import { updateLocation  } from '../store/locationActions'
 
 
 
@@ -23,7 +22,13 @@ export default function NavBar(params) {
     }
     const handleSubmit = (e) => {
         getCoffeeShops(search)
-        .then(data =>dispatch(saveShops(data)))
+        .then(data => {
+            dispatch(saveShops(data))
+            let shop = data[3]
+            
+           dispatch(updateLocation([Number(shop.latitude), Number(shop.longitude)]))
+        }
+        )
     }
     
     const handleChange = (e) => {
@@ -32,15 +37,11 @@ export default function NavBar(params) {
     console.log(search)
     return(
         <Layout.Header mode='horizontal'>
-              <div >
                     <NavLink className="logo" to={"/"} >
                         Co Fi 
                     </NavLink>
-                </div>
-            
 
-
-           <Form>
+           <Form className="searchForm">
                <Form.Item>
                <Search
                type="search" 
@@ -54,20 +55,20 @@ export default function NavBar(params) {
            </Form>
 
            {/* <div className="profileinfo"> */}
-                <div>
-                <Link to={`/${user.username}`} >
-                    <Avatar src={user.avatar} size={60}/>
-                </Link>
-                </div>
-                <Menu mode='horizontal'defaultSelectedKeys={['2']}>
               
+                <Menu mode='horizontal'>
+                <Menu.Item>
+                <Link to={`/${user.username}`} >
+                    <Avatar src={user.avatar} size={40}/>  
+                </Link>
+                </Menu.Item>
 
                 <Menu.Item>
                     <NavLink 
                         to="/" 
                         onClick={handleClick}
                     >
-                        LogOut
+                        Sign Out
                     </NavLink>
                 </Menu.Item>
 

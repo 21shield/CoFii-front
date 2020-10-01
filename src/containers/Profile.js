@@ -1,14 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 // import { getFavorites, updateFaveList } from '../store/shopActions'
 // import { NavLink, Link } from "react-router-dom";
-import { useSelector, useDispatch } from 'react-redux'
+import { useSelector } from 'react-redux'
 import NavBar from './NavBar'
 import UserInfoCard from './UserInfoCard'
 import UsersFavorites from '../components/UsersFavorites.js'
 
 
 export default function Profile(){
-    const dispatch = useDispatch()
+    // const dispatch = useDispatch()
     const {favorites} = useSelector(state => state.user.currentUser)
     
 
@@ -16,8 +16,7 @@ export default function Profile(){
        
         return favorites.map((favObj) => (
             <UsersFavorites key={favObj.id} shop={favObj.coffee_shop}/>
-        )
-        )
+        ))
     }
     
     return(

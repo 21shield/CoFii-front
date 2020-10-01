@@ -6,28 +6,36 @@
 
 .userProfile{
     display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
+    /* flex-direction: row; */
+    /* flex-wrap: wrap; */
 }
 
 
 .userIcon img{
-    display: flex;
-    flex-direction: row;
-    height: 15em;
-    width: 15em;
-    border-radius: 50%;
+   width: 150px;
+   height: 150px;
+   margin-right: 2em;
+   border-radius: 80px;
 }
 
-.userInfo{
+.userInfoProf{
     display: flex;
     flex-direction: row;
-    /* float: right; */
-    /* border: solid 2px cornflowerblue; */
-    background-color: cornsilk;
-    border-bottom: solid 1px rgb(101, 85, 20);
+    justify-content: space-between;
+    margin: 8em 1em;
+    padding: 3em;
+    width: 100%;
+    /* max-height: 450px; */
+    border-bottom: solid 1px rgb(88, 88, 87);  
 }
 
+.displayProf{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 1em;
+    width: 109%;
+}
 
 .userFaves{
     display: flex;

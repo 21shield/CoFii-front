@@ -2,18 +2,19 @@ import React, { useState } from 'react';
 import ReactMapGl, { Marker, Popup } from 'react-map-gl';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateLocation  } from '../store/locationActions'
-// import { userLocation } from '../store/userActions'
-
 import '../styles/shopPanel.css'
 
 
 export default function Map() {
   const dispatch = useDispatch()
+  // const location = useSelector((state) => state.user.userLocation) 
   const location = useSelector((state) => state.location) 
   const user = useSelector((state) => state.user)
 
   const coffeeShops = useSelector(state => state.shops.shops)
   const [selectedShop, setSelectedShop] = useState(null)
+
+
 
   const renderMarkers = () => {
     return coffeeShops.map(shop => (
@@ -26,6 +27,7 @@ export default function Map() {
         <a href={shop.url} onClick={(e)=>{
           e.preventDefault()
           setSelectedShop(shop)
+          dispatch(updateLocation([shop.latitude, shop.longitude]))
           }}>
           <div className="beanLocation">
             <img src="https://freeiconshop.com/wp-content/uploads/edd/location-pin-curvy-outline.png" alt="bean" />
@@ -43,17 +45,20 @@ export default function Map() {
     let num = meter/1609
     return Math.ceil(num * 100) / 100
   }
-  
 
-    return(
+
+  return(
         <div className="map">
+          {location.latitude ? 
         <ReactMapGl
         {...location}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        mapStyle="mapbox://styles/netalydev/ckf7ue7hc0uht19o88kcesw4x"
+        // mapStyle="mapbox://styles/netalydev/ckf7ue7hc0uht19o88kcesw4x"
+         mapStyle="mapbox://styles/mapbox/streets-v11"
         onViewportChange={(data) => 
-          dispatch(updateLocation([data.latitude, data.longitude]))
-        }
+         
+          dispatch(updateLocation([data.latitude, data.longitude]))}
+      
         >
             <Marker 
             className="userLocation"
@@ -81,6 +86,9 @@ export default function Map() {
               </div>
             </Popup>) : null}
         </ReactMapGl> 
+        :
+        null
+        }
       </div>
     )
 }

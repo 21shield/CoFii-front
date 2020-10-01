@@ -4,35 +4,59 @@
     /* flex-direction: column; */
     box-shadow: 0 2px 5px rgba(0,0,0,0.5);
     flex-direction: column;
-    max-height: 800px;
-    /* width: 30%; */
-    padding: 5px;
+    min-height: 600px;
+    max-height: 600px;
+    padding: 1em !important;
     margin-left: 3rem;
-    border-radius: 5px;
-    margin-bottom: 2em; 
+    margin-bottom: 2em !important;
+    border-radius: 10px;
     background-color: rgb(252, 252, 252);
+    overflow: hidden;
   }
 
-  .cardHeader{
-    flex-wrap: nowrap;
-    flex-direction: column;
-    max-height: 100px;
+  .anticon{
+    font-size: 1em !important;
+  }
+
+  .ant-tabs-tab .anticon{
+    font-size: 1.5em !important;
+    color: rgb(34, 73, 80) !important;
+  }
+  .ant-tabs-tab:hover{
+    background-color: rgba(249, 221, 170, 0.3)
+    !important;
+  }
+
+  .anticon:hover{
+    color: rgb(154, 231, 252)!important
   }
   
+  .ant-page-header-heading-title{
+   font-size: 30px !important;
+  }
+  
+  .imgContainer{
+    padding:1em;
+    margin: 1em;
+    max-height: 350px;
+    overflow: hidden;
+    align-items: center;
+  }
   .cImg {
-    width: 100%;
-    max-height:  500px;   
+    max-width: 87%;
+    max-height: 87%;   
   }
  
 
-  .infoBar {
-    /* border: solid 2px rosybrown; */
-    /* float: right; */
-    flex-wrap: nowrap;
-    flex-direction: row;
-    justify-content: space-between;
-    /* margin: 0; */
+  .ant-tabs-nav-list{
+    background-color: rgb(250, 249, 248);
+    height: 100%;
   }
+/* 
+  .ant-tabs-tabpane {
+    margin: 1em !important;
+  } */
+
 
   .mediaBar{
     border: solid 2px rgb(4, 91, 12);
@@ -40,14 +64,27 @@
 
 
   .csComments{
-    border: solid 2px green;
+    border: solid 2px rgb(89, 116, 89, 0.2);
+    border-radius: 5%;
     padding:2px 16px;
-    max-height: 300px;
+    min-height: 290px;
+    max-height: 290px;
+    margin-bottom: 1em;
+    margin-top: 2.5em;
     /* position: fixed; */
-    overflow: hidden;
+    overflow: auto !important;
   
   }
+  .cmtSection{
+    min-height: 360px;
+    max-height: 360px;
+  }
+  
 
+  
   .comment {
     flex-wrap: wrap;
   }
+
+  
+ 

@@ -16,7 +16,7 @@ export default function Login(props) {
     const dispatch = useDispatch()
 
     const {username, password} = useSelector(state => state.user.form)
-    const user = useSelector(state => state.user.form)
+    // const user = useSelector(state => state.user.form)
 
     const handleChange = (e) => {
         const action = {
@@ -31,11 +31,6 @@ export default function Login(props) {
         dispatch(loginUser())
     }
 
-    const onFinishFailed = errorInfo => {
-        console.log('Failed:', errorInfo);
-      };
-
-    console.log(user)
     return(
         // <div className ="login">
            
@@ -86,12 +81,15 @@ export default function Login(props) {
                 <Form.Item>
                     <Button htmlType="submit" onClick={handleSubmit} > LogIn </Button>
                 </Form.Item>
-               
+
+               <Form.Item>
+                    <a className="login-form-forgot" href="">Forgot password</a>
+                    or
+                    <a onClick={props.click}> Sign Up </a>
+               </Form.Item>
                         
             </Form>
-            <a className="login-form-forgot" href="">Forgot password</a>
-                or
-                <a onClick={props.click}> Sign Up </a>
+            
             </Space> 
             
         // {/* // </div> */}

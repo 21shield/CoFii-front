@@ -35,10 +35,12 @@ export default function Home () {
     useEffect(() => {
         // launch search for current coordinates
         // let location = state.user.userLocation
-        getCoffeeShops(location)
-        .then((data) => {
-            dispatch(saveShops(data))
-        })
+        if (location[0] && location[1]) {
+            getCoffeeShops(location)
+            .then((data) => {
+                dispatch(saveShops(data))
+            })
+        }
     },
     [dispatch, location])
 

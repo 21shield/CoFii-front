@@ -1,13 +1,18 @@
-import React from 'react'
-import Comment from './Comment'
+import React from 'react';
+import { Empty } from 'antd';
+import Comments from './Comments'
 
-export default function CommentListing (props){
-   
-    const shop = props.shop
+export default function CommentListing ({location, comments}){
+    console.log(location, comments);
     let renderComments = () => {
-       return shop.comments.map(
-            (comment) => <Comment key={comment.id} comment={comment}/>
-      )
+      if(comments.length >= 1){
+        return comments.map(
+          (comment) => <Comments key={comment.id} comment={comment}/>
+        )
+      }else{
+        return (<Empty description={"No Comments yet! Add a New Comment"} />)
+      }
+      
     } 
 
     return (
