@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
-import ReactMapGl, { Marker, Popup } from 'react-map-gl';
+import { Card, Avatar } from 'antd';
+import { EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import ReactMapGl, { Marker, Popup } from 
+'react-map-gl';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateLocation  } from '../store/locationActions'
 import '../styles/shopPanel.css'
 
+const { Meta } = Card;
 
 export default function Map() {
   const dispatch = useDispatch()
-  // const location = useSelector((state) => state.user.userLocation) 
   const location = useSelector((state) => state.location) 
   const user = useSelector((state) => state.user)
-
   const coffeeShops = useSelector(state => state.shops.shops)
   const [selectedShop, setSelectedShop] = useState(null)
 
+  const calculateMi = (distance) => {
+    let meter = Number(distance)
+    let num = meter/1609
+    return Math.ceil(num * 100) / 100
+  }
 
 
   const renderMarkers = () => {
@@ -27,11 +34,11 @@ export default function Map() {
         <a href={shop.url} onClick={(e)=>{
           e.preventDefault()
           setSelectedShop(shop)
-          dispatch(updateLocation([shop.latitude, shop.longitude]))
           }}>
           <div className="beanLocation">
-            <img src="https://freeiconshop.com/wp-content/uploads/edd/location-pin-curvy-outline.png" alt="bean" />
-            {/* <i className="fas fa-mug-hot"></i> */}
+            {/* <img src="https://freeiconshop.com/wp-content/uploads/edd/location-pin-curvy-outline.png" alt="bean" /> */}
+            {/* <PushpinTwoTone /> */}
+            <i className="fas fa-mug-hot"></i>
           </div>
         </a>
        
@@ -40,21 +47,18 @@ export default function Map() {
     )
   }
   
-  const calculateMi = (distance) => {
-    let meter = Number(distance)
-    let num = meter/1609
-    return Math.ceil(num * 100) / 100
-  }
+ 
 
 
   return(
+   
         <div className="map">
           {location.latitude ? 
         <ReactMapGl
         {...location}
         mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
-        // mapStyle="mapbox://styles/netalydev/ckf7ue7hc0uht19o88kcesw4x"
-         mapStyle="mapbox://styles/mapbox/streets-v11"
+        mapStyle="mapbox://styles/netalydev/ckf7ue7hc0uht19o88kcesw4x"
+        //  mapStyle="mapbox://styles/mapbox/streets-v11"
         onViewportChange={(data) => 
          
           dispatch(updateLocation([data.latitude, data.longitude]))}
@@ -78,12 +82,19 @@ export default function Map() {
               onClose={(e) => setSelectedShop(null) 
               }
             >
-              <div>
-              <h4>{selectedShop.name}</h4>
-              <hr/>
-              <p>{selectedShop.location}</p>
-            <small>{calculateMi(selectedShop.distance)} mi</small>
-              </div>
+                {console.log(selectedShop)}
+                <Meta 
+                avatar={<Avatar shape="square" size="large" src={selectedShop.image_url}/>}
+                title={[selectedShop.name,  <p>{selectedShop.rating}</p> ]}
+                description={
+                    
+                  [<p>{selectedShop.location}</p>, <p>{calculateMi(selectedShop.distance)} mi</p>]
+                }
+              
+                style={{ width: 200, marginTop: 16 }}
+                // action={[ <div key="1">{calculateMi(selectedShop.distance)} mi</div>, <div key="2">{selectedShop.rating}</div>]}
+                />
+
             </Popup>) : null}
         </ReactMapGl> 
         :

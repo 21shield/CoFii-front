@@ -14,10 +14,17 @@ export const newComment = (comment, shopId) => {
     return function (dispatch){
        const {shops} = store.getState().shops
        let updatedShopsList = shops.map((shop) => {
-           if(shop.external_id === shopId){
-               shop.comments.push(comment)
-               return shop
-           }return shop
+           if(shop.id === shopId){
+               const updatedShop = {
+                   ...shop,
+                   comments:[
+                    ...shop.comments,
+                    comment
+                    ]
+                }
+               return updatedShop
+           }
+           return shop
        })
        dispatch(updateShops(updatedShopsList))
     }

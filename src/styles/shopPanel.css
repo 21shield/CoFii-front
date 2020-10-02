@@ -17,13 +17,17 @@
 }
 
 .map {
+    overflow: hidden;
     position: fixed;
     left: 52%;
+    border: solid 1px thistle;
+    border-radius: 15px;
 }
 
-.beanLocation img{
+.beanLocation {
     width: 20px;
     height: 20px; 
+    color: rgb(216, 129, 216);
     border-radius: 40px;
     transition: transform .8s; 
 }
@@ -31,7 +35,7 @@
 
 .beanLocation:hover {
     transform: scale(2.5);
-    background-color: rgb(63, 191, 191, .5);
+    color: rgb(230, 126, 94);
     border-radius: 10px;
     
 } 

@@ -1,10 +1,14 @@
 
 
 .logo{
-  color: #608072;
+  color: #438669;
   font-family: "Titillium Web", serif;
   font-size: 2.5rem;
 
+}
+.ant-avatar > img {
+  border: solid 1px #d3ebee;
+  border-radius: 5px;
 }
 
 .logo:hover{
@@ -12,9 +16,48 @@
 }
 
 .searchForm{
-  margin: 1em !important;
+  margin: 1.5em !important;
 }
 
 
+.ant-btn-background-ghost {
+  color: #608072 !important;
+  border-color: #608072 !important;
+}
+
+.ant-btn:hover{
+  color: #c09a62 !important;
+  border-color: #c09a62 !important;
+}
+
+.ant-menu-horizontal {
+  margin-right: 4em !important;
+  line-height: 46px;
+  white-space: nowrap;
+  border: 0;
+  background-color: #c6e6eb !important;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.ant-layout-header {
+  height: auto !important;
+  border-bottom: solid 1px #c09a62;
+}
+
+.ant-menu-horizontal >.ant-menu-item{
+  padding: 5px !important;
+}
 
 
+@keyframes example {
+  from {background-color: #c6e6eb;}
+  to {background-color: #b3d4c6;}
+}
+
+.ant-menu-horizontal >.ant-menu-item:hover {
+  animation-name: example;
+  animation-duration: 2s;
+  border-radius: 15px;
+  border-bottom: 1px solid #c09a62 !important;
+}

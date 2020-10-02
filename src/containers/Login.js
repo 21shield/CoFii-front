@@ -32,16 +32,10 @@ export default function Login(props) {
     }
 
     return(
-        // <div className ="login">
            
             <Space layout="vertical">
             <Form 
             className="form" 
-            // onFinishFailed={onFinishFailed}
-            // onSubmit={handleSubmit}
-            // form={Form.useForm()}
-            // initialValues={{ remember: true }}
-            // layout="horizontal"
             >
                 <Form.Item
                   rules={[{ required: true, message: 'Enter Username!' }]}

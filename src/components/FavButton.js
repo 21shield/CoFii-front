@@ -1,13 +1,13 @@
 import React, { useState } from 'react'
 import '../styles/favButton.css'
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { createFavorite, removeFavorite } from '../api/index'
-import { addFave } from '../store/userActions'
+import { addFave, removeFav } from '../store/userActions'
 
 export default function FavButton(props) {
     const [click, setClick] = useState(false)
     
-    const {favorites} = useSelector(state => state.user.currentUser)
+    // const {favorites} = useSelector(state => state.user.currentUser)
     // console.log("from the faveButton", favorites)
 // fetch and check for the fav show the heart if its been favorited
     
@@ -21,16 +21,17 @@ export default function FavButton(props) {
 
     const handleFavorite = (e) => {
         if(!click){
+
            createFavorite(props.shopId)
            .then((newFaveObj) => {
             //want to update the state and send it 
-
-               dispatch(addFave(newFaveObj.fav))
+                // console.log("from thte faves", newFaveObj)
+                dispatch(addFave(newFaveObj.fav))
            })
         }else{
           removeFavorite(props.shopId)
           .then((data) => {
-              console.log("this  was removed",data)
+              dispatch(removeFav(data))
           }
           )
         }

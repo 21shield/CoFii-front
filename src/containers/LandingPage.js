@@ -5,7 +5,8 @@ import SignUp from './SignUp';
 import '../styles/landing.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-import img from "../imgs/cofi.png"
+// import img from "../imgs/cofi.png"
+
 
 export default function LandingPage (p) {
 
@@ -32,11 +33,17 @@ export default function LandingPage (p) {
 
                 <div className="aboutColumn">
                     <h1 data-aos="fade-up">Co Fi</h1>
-                    <h2 data-aos="fade-right">Coffee's  Wifi ♡</h2>
-                    <p data-aos="fade-up"
-                        data-aos-duration="5000">
-                    ABOUT THE WEBSITE WHAT IT DO
-                    </p>     
+                    <h2 data-aos="fade-right">
+                        Coffee Meets Wifi </h2>
+                    
+                     <p data-aos="fade-up"
+                     data-aos-duration="5000">
+                     The place To Find Your 
+                        <br/>
+                     Next Home Away From Home ♡
+                    </p> 
+                  
+                       
                 </div>
 
                 <div className="aboutColumn">

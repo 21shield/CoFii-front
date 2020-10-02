@@ -14,7 +14,6 @@ export default function Home () {
     const dispatch = useDispatch()
     // const state = useSelector(state => state)
     const location = useSelector(state => state.user.userLocation)
-    const favs = useSelector(state=> state.user.currentUser.favorites)
     
 
     useEffect(() => {
@@ -27,10 +26,10 @@ export default function Home () {
                   dispatch(updateLocation([latitude,longitude]))
             },
             (err) => {
-                console.log(err)
+                alert(err)
             } 
         )
-    },[dispatch]); 
+    },[]); 
 
     useEffect(() => {
         // launch search for current coordinates
@@ -45,7 +44,6 @@ export default function Home () {
     [dispatch, location])
 
      
-   console.log("from the home page",favs)
     return(
         <Layout>
             <div className ="homePage">

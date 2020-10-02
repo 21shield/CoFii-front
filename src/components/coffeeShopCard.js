@@ -1,6 +1,6 @@
 import React from 'react';
 // import { useSelector} from 'react-redux';
-import {EnvironmentOutlined, MessageOutlined, WifiOutlined, SmileOutlined} from '@ant-design/icons';
+import {EnvironmentOutlined, MessageOutlined,  SmileOutlined, BarsOutlined} from '@ant-design/icons';
 
 import {PageHeader, Tabs, Descriptions, Tag, Rate} from 'antd'
 import '../styles/coffeeShopCard.css'
@@ -13,12 +13,23 @@ import 'aos/dist/aos.css';
 const { TabPane } = Tabs;
 
 
-export default function CoffeeShopCard({ external_id, name, image_url, location, rating, comments}) {
+export default function CoffeeShopCard({ id, categories, external_id, name, image_url, location, rating, comments}) {
     // useEffect(() => {
     //     AOS.init({duration: 2000})
     // },[])
+    const colors = [
+        "#608072",
+        "#c0dadd",
+        "#BEAB9C"
+    ]
 
-    // console.log(location, comments)
+    const renderTag = () => {
+        return categorieArray.map((categorie) => (
+        <Tag icon={<SmileOutlined />} color={colors[categorieArray.indexOf(categorie)]}> {categorie}</Tag>
+        ))
+    }
+    
+    const categorieArray = categories.split(",")
     return(
        
 
@@ -28,7 +39,11 @@ export default function CoffeeShopCard({ external_id, name, image_url, location,
                 className="cardHeader"
                 title={name}
                 
-                tags={[<Tag icon={<WifiOutlined />}color="#608072">Wifi</Tag>,<Tag icon={<SmileOutlined />} color="#c0dadd"> Bathroom</Tag> ]}
+                tags={
+                    // [<Tag icon={<WifiOutlined />}color="#608072">Wifi</Tag>,
+                    // <Tag icon={<SmileOutlined />} color="#c0dadd"> Bathroom</Tag>,]
+                    renderTag()
+                    }
                 extra={<FavButton shopId={external_id}/>}
                 />
                <hr/>
@@ -38,12 +53,15 @@ export default function CoffeeShopCard({ external_id, name, image_url, location,
                     <TabPane 
                     tab={<EnvironmentOutlined />} key="1"
                     >
+                         
+
                         <Descriptions
                         size="middle" 
-                        column={2}
+                        column={3}
                         >
+                            <Descriptions.item label="Name"> {name} </Descriptions.item> 
 
-                            <Descriptions.item label="Address"> {location} NY </Descriptions.item>
+                            <Descriptions.item label="Address"> {location} </Descriptions.item>
 
                                 <Descriptions.item label="Rating">
                                     <Rate disabled allowHalf defaultValue={Number(rating)}/>
@@ -51,7 +69,11 @@ export default function CoffeeShopCard({ external_id, name, image_url, location,
 
                         </Descriptions>
                         <div className="imgContainer">
-                            <img className="cImg" src={image_url} alt={name} />
+                            <img
+                            width={200}
+                            className="cImg" 
+                            src={image_url} 
+                            alt={name} />
                         </div>
                        
 
@@ -65,17 +87,19 @@ export default function CoffeeShopCard({ external_id, name, image_url, location,
                    <div className="cmtSection">
 
                         <CommentListing location={location} comments={comments}/>
-                        <NewComment external_id={external_id}/>
+                        <NewComment coffee_shop_id={id}/>
                    </div>
                    </TabPane>
 
-                   {/* <TabPane 
-                   tab={<ShareAltOutlined />}
+                    <TabPane  
+                   tab={<BarsOutlined />}
                    key="3"
                    >
-                        <CsMediaBar shop={props.shop}/>
+                        <h1>{name} Menu Items</h1>
+                        <br/>
+                        <p> 1. Coffee 3.25 </p>
 
-                   </TabPane> */}
+                   </TabPane> 
                   
                     
                 </Tabs>

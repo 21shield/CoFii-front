@@ -5,14 +5,14 @@ import { useDispatch } from 'react-redux';
 import { createComment } from '../api/index'
 import { newComment } from '../store/shopActions'
 
-export default function NewComment({external_id}) {
+export default function NewComment({coffee_shop_id}) {
 
     const dispatch = useDispatch()
     const [state, setState] = useState({
         content: "",
-        coffee_shop_id: external_id
+        coffee_shop_id: coffee_shop_id
     })
-    
+
     const handleChange = (e) => {
         e.persist();
         setState(prevState => ({
@@ -25,11 +25,11 @@ export default function NewComment({external_id}) {
         e.preventDefault();
         createComment(state)
         .then((data) => {
-            dispatch(newComment(data.comment, external_id));
-            setState({
-                content: "",
-                coffee_shop_id: external_id
-            });
+            dispatch(newComment(data.comment, coffee_shop_id));
+            setState(prevState => ({
+                ...prevState,
+                content: ""
+            }));
         })
     }
     return(

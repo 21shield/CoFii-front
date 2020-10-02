@@ -9,6 +9,7 @@
     "@testing-library/user-event": "^7.1.2",
     "antd": "^4.6.6",
     "aos": "^2.3.4",
+    "random-joke-getter": "^2.0.3",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-map-gl": "^5.2.8",

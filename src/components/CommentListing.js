@@ -3,7 +3,6 @@ import { Empty } from 'antd';
 import Comments from './Comments'
 
 export default function CommentListing ({location, comments}){
-    console.log(location, comments);
     let renderComments = () => {
       if(comments.length >= 1){
         return comments.map(

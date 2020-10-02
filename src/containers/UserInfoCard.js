@@ -1,6 +1,5 @@
 import { Button, Tooltip } from 'antd';
 import { SettingOutlined } from '@ant-design/icons';
-
 import React, { useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import Modal from 'react-modal';
@@ -49,13 +48,12 @@ export default function Profile(){
 
         updateUser(form)
         .then((data) => {
-            console.log('FROM THE UPDATE',data)
+            // console.log('FROM THE UPDATE',updatedUser)
             const action = {
                 type: "LOGIN",
-                payload: data
+                payload: data.user
             }
-            // dispatch(action)
-            console.log(user, "from the update")
+            dispatch(action)
             // new data should be rendered on the page
         }
         )

@@ -26,7 +26,7 @@ const reducer = (state = defaultState, action ) => {
                
             }
         case "CLEAR_FORM":
-            return{
+            return {
                 ...state,
                 form:{
                     username: "",
@@ -36,7 +36,7 @@ const reducer = (state = defaultState, action ) => {
                 } 
             }
         case "LOGOUT":
-            return{
+            return {
                 ...state,
                 currentUser: null,
                 form:{
@@ -48,7 +48,7 @@ const reducer = (state = defaultState, action ) => {
             }
                 
         case 'LOGIN':
-            return{
+            return {
                 ...state,
                 currentUser: action.payload
             }
@@ -60,7 +60,7 @@ const reducer = (state = defaultState, action ) => {
             }
 
         case "ADD_FAVORITE":
-            return{
+            return {
                 ...state,
                 currentUser:{
                     ...state.currentUser,
@@ -68,6 +68,14 @@ const reducer = (state = defaultState, action ) => {
                         ...state.currentUser.favorites,
                         action.payload
                     ]
+                }
+            }
+        case "REMOVE_FAVORITE":
+            return {
+                ...state,
+                currentUser:{
+                    ...state.currentUser,
+                    favorites: action.payload
                 }
             }
         default:

@@ -10,24 +10,24 @@ import UsersFavorites from '../components/UsersFavorites.js'
 export default function Profile(){
     // const dispatch = useDispatch()
     const {favorites} = useSelector(state => state.user.currentUser)
-    
-
+    console.log(favorites)
     const renderFavorites = () => {
        
         return favorites.map((favObj) => (
+            
             <UsersFavorites key={favObj.id} shop={favObj.coffee_shop}/>
         ))
     }
-    
     return(
-        <div className= "profilePage">
+        < >
             <NavBar/>
-           
-            <UserInfoCard/>
-          <div className="userFaves">
-            {renderFavorites()}
+           <div className= "profilePage">
+
+                <UserInfoCard/>
+            <div className="userFaves">
+                {renderFavorites()}
+            </div>
           </div>
-           
-        </div>
+        </>
     )
 }

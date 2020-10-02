@@ -6,8 +6,8 @@
 
 .userProfile{
     display: flex;
-    /* flex-direction: row; */
-    /* flex-wrap: wrap; */
+    flex-direction: column;
+    flex-wrap: wrap;
 }
 
 
@@ -41,27 +41,33 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-around;
+    justify-content: space-evenly;
+    overflow: hidden;
 }
 
 .faveShop{
-    display: flex;
-    flex-direction: column;
-    /* flex-wrap: wrap; */
-    /* border: solid 2px cornflowerblue; */
-    background-color: rgb(236, 252, 248, 0.6);
-    border: solid 1px rgb(20, 101, 63);
-    padding: 1em;
-    margin: 2px;
-    max-width: 15rem;
-    
+    border: solid 1px rgb(133, 175, 144, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 2em; 
+    padding: 1px;
 }
 
-.faveShop img{
+.ant-card-bordered .ant-card-cover  img{
+    /* margin-right: -1px;
+    margin-left: -1px;
+    -webkit-transform: translateY(-1px);
+    transform: translateY(-1px); */
+    max-height: 200px;
+}
+
+
+
+/* .faveShop img{
     height: 10em;
     width: 10em;
     border-radius: 50%;
-}
+} */
 
 
 

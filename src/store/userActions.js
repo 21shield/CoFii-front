@@ -16,7 +16,7 @@ import store from './index'
                 dispatch(handleUser(data))
                 dispatch(clearForm())
             }else{
-                console.log(data.error)
+                alert(data.error)
             }
         })
     }
@@ -38,7 +38,7 @@ export const loginUser = () => {
                 dispatch(handleUser(data))
                 dispatch(clearForm())
             }else{
-                console.log(data.message)
+                alert(data.message)
             }
         })
     }
@@ -58,7 +58,7 @@ export const autoLogin = () => {
                 dispatch({type:'LOGIN', payload:data.user})
                 dispatch(clearForm())
             }else{
-                console.log(data.error)
+                alert(data.error)
             }
         })
     }
@@ -67,6 +67,7 @@ export const autoLogin = () => {
 
 export const logout  = () => {
     return function (dispatch) {
+
         const action = {
             type: 'LOGOUT'
         }
@@ -79,7 +80,6 @@ export const logout  = () => {
 // helpers should only return actions
 
 export const userLocation = (cords) => {
-    console.log("from userActions", cords)
     const action = {
         type:"SET_USER_LOCATION",
         payload: cords
@@ -111,3 +111,16 @@ export const addFave = (fav) => {
     }
     return action
 }
+
+export const removeFav = (fav) => {
+    const favoritesArray = store.getState().user.currentUser.favorites
+    return function (dispatch){
+        const copyFavArray = favoritesArray.filter((favObj) => (favObj.id !== fav.id ))
+        const action = {
+            type: "REMOVE_FAVORITE",
+            payload: copyFavArray
+        }
+        dispatch(action)
+    } 
+}
+

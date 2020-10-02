@@ -1,11 +1,11 @@
 @import '~antd/dist/antd.css';
 
 .ant-layout-header {
-    background: #d3ebee;
+    background: #c6e6eb;
     display: flex;
     justify-content: space-between; 
     position: fixed;
-    /* padding: 1px; */
+    padding: 2px;
     width: 100%;
     z-index: 1;
 }
