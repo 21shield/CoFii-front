@@ -3,6 +3,7 @@ import { EditOutlined, EllipsisOutlined, SettingOutlined, MehOutlined, SmileOutl
 import {useDispatch} from 'react-redux'
 import {  Card, Avatar, Popconfirm } from 'antd';
 import '../styles/profile.css'
+import 'aos/dist/aos.css'; 
 import {removeFavorite } from '../api/index'
 import { removeFav } from '../store/userActions'
 const { Meta } = Card;
@@ -26,8 +27,12 @@ export default function UsersFavorites (props){
     )
    
     return (
-        <div className = "faveShop">
+        <div 
+        className ="faveShop" 
+       
+        >
             <Card
+           
              style={{ width: 300 }}
              cover={
                <img

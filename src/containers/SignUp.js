@@ -34,7 +34,9 @@ export default function SignUp(props) {
     
     return(
         <div className="signup">
-            <Form className="form" onSubmit={handleSubmit}>
+            <Form 
+            className="form" 
+            onSubmit={handleSubmit}>
             <Form.Item
                 rules={[{ required: true, message: 'Enter Username!' }]}
                 name="username"   

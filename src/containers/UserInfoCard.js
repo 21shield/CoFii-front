@@ -1,11 +1,14 @@
-import { Button, Tooltip } from 'antd';
-import { SettingOutlined } from '@ant-design/icons';
+import { Modal, Button, Tooltip, Upload, Form, Input } from 'antd';
+import { SettingOutlined, InboxOutlined } from '@ant-design/icons';
 import React, { useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-import Modal from 'react-modal';
+// import Modal from 'react-modal';
 import { updateUser } from '../api/index'
 import '../styles/profile.css'
-Modal.setAppElement('#root')
+// Modal.setAppElement('#root')
+
+const { Dragger } = Upload;
+
 
 
 
@@ -14,6 +17,7 @@ export default function Profile(){
     const dispatch = useDispatch()
     const user = useSelector(state => state.user.currentUser)
     const [modalIsOpen, setIsOpen] = useState(false)
+    const [confirmLoading, setConfirmLoading] = useState(false)
 
     const [formState, setFormState] = useState({
         avatar: user.avatar,
@@ -39,6 +43,7 @@ export default function Profile(){
     const handleSubmit = (e) => {
         e.preventDefault()
         console.log('SUBMITED')
+        setConfirmLoading(true)
         let form = new FormData()
         form.append("avatar", avatar)
         form.append("email", email)
@@ -54,8 +59,14 @@ export default function Profile(){
                 payload: data.user
             }
             dispatch(action)
+            
             // new data should be rendered on the page
         }
+        )
+        setTimeout(() => {
+            setConfirmLoading(false)
+            closeModal()
+        }, 2000
         )
         // after sumbit clear the form
         setFormState({  
@@ -65,7 +76,7 @@ export default function Profile(){
             password: "",
             password_confirmation: ''})
 
-        closeModal()
+            
     }
 
 
@@ -91,8 +102,8 @@ export default function Profile(){
                 </div>
  
            <div className="displayProf">
-                <h4>{user.username}</h4>
-                {user.bio.length > 1 ? user.bio :<h1>ADD SOMETHING TO YOU BIO</h1>}
+                <h3>{user.username}</h3>
+                {user.bio.length > 1 ? <h2>{user.bio}</h2> :<h1>ADD SOMETHING TO YOU BIO</h1>}
                 <Tooltip title="Edit Profile">
                     <Button onClick={openModal} shape="circle" icon={<SettingOutlined/>}/>
                 </Tooltip>
@@ -101,19 +112,22 @@ export default function Profile(){
 
                 <Modal
                     // className="editModalForm"
-                    isOpen={modalIsOpen}
+                    title={
+                        <h1> Edit Profile {user.username} ? </h1>    
+                    }
+                    visible={modalIsOpen}
                     onAfterOpen={afterOpenModal}
-                    onRequestClose={closeModal}
-                    // style={customStyles}
-                    className="Modal"
-                    contentLabel="Example Modal"
+                    onCancel={closeModal}
+                    confirmLoading={confirmLoading}
+                    onOk={handleSubmit}
+                    okText={"Submit Edits"}
                     >
                             
-                            <button onClick={closeModal}> X </button>
+                            {/* <button onClick={closeModal}> X </button> */}
                             <div>
-                                <h3> Edit </h3>
-                                <hr/>
-                                <form className="edit-form" onSubmit={handleSubmit} autoComplete="off">
+                                {/* <h3> Edit </h3> */}
+                                {/* <hr/> */}
+                                <Form className="edit-form" onSubmit={handleSubmit} autoComplete="off">
                                     <label>Image Upload</label>
                                     <input 
                                     type="file" 
@@ -124,7 +138,7 @@ export default function Profile(){
                                     <br/>
                                     <label htmlFor="email">
 
-                                        <input 
+                                        <Input 
                                         type="email" 
                                         name="email" 
                                         value={email} 
@@ -137,7 +151,7 @@ export default function Profile(){
                                     </label>
 
                                     <label htmlFor="current-password">
-                                        <input 
+                                        <Input.Password 
                                         type="password" 
                                         name="password" 
                                         placeholder="Password"
@@ -148,7 +162,7 @@ export default function Profile(){
                                     </label>
 
                                     <label htmlFor="new-password">
-                                        <input 
+                                        <Input.Password 
                                         type="password" 
                                         name="password_confirmation" placeholder="Password Confirmation"
                                         autoComplete="new-password"
@@ -156,18 +170,17 @@ export default function Profile(){
                                         onChange={handleChange}
                                         />
                                     </label>
-                                    <textarea cols='30' rows="3"
+                                    <Input.TextArea cols='30' rows="3"
                                         onChange={handleChange}
                                         name="bio"
                                         placeholder="bio"
                                         value={bio} >
-                                    </textarea> 
+                                    </Input.TextArea> 
                                 
-                                    <button type="submit" > Save Edits </button>
-                                    </form>
+                                    </Form>
                                 </div>
                         
-                    </Modal>
+                </Modal>
                 </div>
 
             </div>  
