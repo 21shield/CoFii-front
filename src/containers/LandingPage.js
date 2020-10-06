@@ -38,7 +38,7 @@ export default function LandingPage (p) {
                     
                      <p data-aos="fade-up"
                      data-aos-duration="5000">
-                     The place To Find Your 
+                    Find Your 
                         <br/>
                      Next Home Away From Home ♡
                     </p> 

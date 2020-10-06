@@ -4,6 +4,7 @@ import {useDispatch} from 'react-redux'
 import {  Card, Avatar, Popconfirm } from 'antd';
 import '../styles/profile.css'
 import 'aos/dist/aos.css'; 
+// import AOS from 'aos';
 import {removeFavorite } from '../api/index'
 import { removeFav } from '../store/userActions'
 const { Meta } = Card;
@@ -29,7 +30,8 @@ export default function UsersFavorites (props){
     return (
         <div 
         className ="faveShop" 
-       
+        // data-aos="fade-up" 
+        // data-aos-duration="3000"
         >
             <Card
            
