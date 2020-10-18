@@ -23,8 +23,11 @@ Coffee Shop locator app highlighting shops offering co-working spaces, utilizing
 
 ### Visuals
 ![landingPage](./images/landing.png)
+
 ![DashBoard](./images/dashboard.png)
-![usersPage](./images/usersPage.png)
+
+
+<img src="./images/usersPage.png" alt="usersPage">
 
 ### Usage
 
