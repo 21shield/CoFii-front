@@ -21,6 +21,11 @@ Coffee Shop locator app highlighting shops offering co-working spaces, utilizing
  `$ npm start`
  4. Type `$ y` or `$ yes` when prompted
 
+### Visuals
+![landingPage](./images/landing.png)
+![DashBoard](./images/dashboard.png)
+![usersPage](./images/usersPage.png)
+
 ### Usage
 
 When first starting up the application you will need to sign up with an username email and password. Once properly logged in, you might be prompted to allow access to current location. If allowed you will be shown coffee shops in your vicinity. You can also search by location in the search bar. Comment on Coffee shops to show help others find best shops, and favorite frequent shops.
