@@ -22,12 +22,12 @@ Coffee Shop locator app highlighting shops offering co-working spaces, utilizing
  4. Type `$ y` or `$ yes` when prompted
 
 ### Visuals
-![landingPage](./images/landing.png)
+![landingPage](./Images/landing.png)
 
-![DashBoard](./images/dashboard.png)
+![DashBoard](./Images/dashboard.png)
 
 
-<img src="./images/usersPage.png" alt="usersPage">
+<img src="./Images/usersPage.png" alt="usersPage">
 
 ### Usage
 
