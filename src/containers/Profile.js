@@ -1,6 +1,4 @@
 import React from 'react';
-// import { getFavorites, updateFaveList } from '../store/shopActions'
-// import { NavLink, Link } from "react-router-dom";
 import { useSelector } from 'react-redux'
 import NavBar from './NavBar'
 import UserInfoCard from './UserInfoCard'

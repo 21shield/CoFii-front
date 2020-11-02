@@ -4,7 +4,6 @@ import {useDispatch} from 'react-redux'
 import {  Card, Avatar, Popconfirm } from 'antd';
 import '../styles/profile.css'
 import 'aos/dist/aos.css'; 
-// import AOS from 'aos';
 import {removeFavorite } from '../api/index'
 import { removeFav } from '../store/userActions'
 const { Meta } = Card;

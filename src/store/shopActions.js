@@ -1,5 +1,4 @@
 import store from './index'
-// import { requestFaves } from '../api/index'
 
 export const saveShops  = (arr) => {
     const action = {

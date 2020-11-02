@@ -2,7 +2,6 @@ import { Modal, Button, Tooltip, Upload, Form, Input } from 'antd';
 import { SettingOutlined, InboxOutlined } from '@ant-design/icons';
 import React, { useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux'
-// import Modal from 'react-modal';
 import { updateUser } from '../api/index'
 import '../styles/profile.css'
 // Modal.setAppElement('#root')

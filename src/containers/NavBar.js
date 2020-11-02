@@ -3,7 +3,6 @@ import {  EnvironmentOutlined } from '@ant-design/icons';
 import { Button, Avatar, Layout, Menu, Input, Form, Tooltip} from 'antd';
 import { saveShops } from '../store/shopActions'
 import { NavLink, Link } from "react-router-dom";
-// import { useHistory } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../store/userActions'
 import '../styles/navBar.css'

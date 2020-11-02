@@ -1,5 +1,4 @@
 import React from 'react';
-// import { useSelector} from 'react-redux';
 import {EnvironmentOutlined, MessageOutlined,  SmileOutlined, BarsOutlined} from '@ant-design/icons';
 
 import {PageHeader, Tabs, Descriptions, Tag, Rate} from 'antd'

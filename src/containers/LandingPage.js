@@ -5,7 +5,6 @@ import SignUp from './SignUp';
 import '../styles/landing.css'
 import AOS from 'aos';
 import 'aos/dist/aos.css'; 
-// import img from "../imgs/cofi.png"
 
 
 export default function LandingPage (p) {
