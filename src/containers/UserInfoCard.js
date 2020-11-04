@@ -4,7 +4,6 @@ import React, { useState }from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { updateUser } from '../api/index'
 import '../styles/profile.css'
-// Modal.setAppElement('#root')
 
 const { Dragger } = Upload;
 
@@ -52,7 +51,6 @@ export default function Profile(){
 
         updateUser(form)
         .then((data) => {
-            // console.log('FROM THE UPDATE',updatedUser)
             const action = {
                 type: "LOGIN",
                 payload: data.user
@@ -67,7 +65,6 @@ export default function Profile(){
             closeModal()
         }, 2000
         )
-        // after sumbit clear the form
         setFormState({  
             avatar: user.avatar,
             email: user.email,
@@ -110,7 +107,6 @@ export default function Profile(){
                 
 
                 <Modal
-                    // className="editModalForm"
                     title={
                         <h1> Edit Profile {user.username} ? </h1>    
                     }
@@ -122,10 +118,9 @@ export default function Profile(){
                     okText={"Submit Edits"}
                     >
                             
-                            {/* <button onClick={closeModal}> X </button> */}
+                            
                             <div>
-                                {/* <h3> Edit </h3> */}
-                                {/* <hr/> */}
+                               
                                 <Form className="edit-form" onSubmit={handleSubmit} autoComplete="off">
                                     <label>Image Upload</label>
                                     <input 

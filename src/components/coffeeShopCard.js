@@ -47,7 +47,6 @@ export default function CoffeeShopCard({ id, categories, external_id, name, imag
                     tab={<EnvironmentOutlined />} key="1"
                     >
                          
-
                         <Descriptions
                         size="middle" 
                         column={3}
