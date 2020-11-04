@@ -3,19 +3,16 @@ import {EnvironmentOutlined, MessageOutlined,  SmileOutlined, BarsOutlined} from
 
 import {PageHeader, Tabs, Descriptions, Tag, Rate} from 'antd'
 import '../styles/coffeeShopCard.css'
-// import CsMediaBar from './csMediaBar'
 import NewComment from './NewComment'
 import CommentListing from './CommentListing'
 import FavButton from './FavButton'
-// import AOS from 'aos';
 import 'aos/dist/aos.css'; 
 const { TabPane } = Tabs;
 
 
 export default function CoffeeShopCard({ id, categories, external_id, name, image_url, location, rating, comments}) {
-    // useEffect(() => {
-    //     AOS.init({duration: 2000})
-    // },[])
+
+    const categorieArray = categories.split(",")
     const colors = [
         "#608072",
         "#c0dadd",
@@ -28,7 +25,6 @@ export default function CoffeeShopCard({ id, categories, external_id, name, imag
         ))
     }
     
-    const categorieArray = categories.split(",")
     return(
        
 
@@ -39,8 +35,7 @@ export default function CoffeeShopCard({ id, categories, external_id, name, imag
                 title={name}
                 
                 tags={
-                    // [<Tag icon={<WifiOutlined />}color="#608072">Wifi</Tag>,
-                    // <Tag icon={<SmileOutlined />} color="#c0dadd"> Bathroom</Tag>,]
+                   
                     renderTag()
                     }
                 extra={<FavButton shopId={external_id}/>}
@@ -48,7 +43,6 @@ export default function CoffeeShopCard({ id, categories, external_id, name, imag
                <hr/>
 
                 <Tabs tabPosition="left">
-                    {/* <div> */}
                     <TabPane 
                     tab={<EnvironmentOutlined />} key="1"
                     >
