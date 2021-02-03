@@ -75,7 +75,7 @@ export default function Login(props) {
         <Form.Item>
           {/* <a className="login-form-forgot" href="">Forgot password</a>
                     or */}
-          New? <br />
+          Don't have an account?
           <a onClick={props.click}> Sign Up </a>
         </Form.Item>
       </Form>
