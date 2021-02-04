@@ -22,7 +22,7 @@
 .aboutColumn{
     padding: clamp(1rem, 8vw, 5rem);
     max-width: 50%;
-    border: solid 1px thistle;
+    /* border: solid 1px thistle; */
 }
 
 .aboutSection h1{
